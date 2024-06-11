@@ -1,13 +1,70 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,*::after,*::before{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  font-family: 'Poppins',sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+.container{
+  max-width: 1320px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.header{
+  padding: 30px 0;
+}
+.header__inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__menu-list{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.menu__item-link{
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 1;
+  transition:all .3s ease;
+}
+.menu__item-link:hover{
+  opacity: 0.5;
+  font-size: 16px;
+}
+.menu__list-itemCart{
+  position: relative;
+}
+.menu__link-spanCart{
+  display: block;
+  width: 16px;
+  height: 17px;
+  background-color: #0156FF;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  color:#fff;
+  text-align: center;
+  line-height: 17px;
+  position: absolute;
+  top:-5px;
+  right: -8px;
+}
+.sectionTop__img{
+  width: 100%;
 }
