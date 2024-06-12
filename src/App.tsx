@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import SectionCustom from "./components/SectionCustom";
 import SectionTop from "./components/SectionTop";
 
 
@@ -9,6 +10,7 @@ function App() {
       <main className="main">
         <div className="container">
           <SectionTop/>
+          <SectionCustom/>
         </div>
       </main>
     </div>
