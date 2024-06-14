@@ -1,7 +1,11 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
+import SectionCompanies from "./components/SectionCompanies";
 import SectionCustom from "./components/SectionCustom";
 import SectionLaptops from "./components/SectionLaptops";
 import SectionMonitors from "./components/SectionMonitors";
+import SectionSupport from "./components/SectionSupport";
+import SectionSwiper from "./components/SectionSwiper";
 import SectionTop from "./components/SectionTop";
 
 
@@ -15,8 +19,12 @@ function App() {
           <SectionCustom/>
           <SectionLaptops/>
           <SectionMonitors/>
+          <SectionCompanies/>
+          <SectionSwiper/>
+          <SectionSupport/>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

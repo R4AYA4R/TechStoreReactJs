@@ -95,9 +95,14 @@ ul{
 }
 .sectionCustom__firstBlock-link{
   font-size: 13px;
-  font-weight: 400;
-  color:#fff;
+  font-weight: 300;
+  color:#e2e2e2;
   text-decoration: underline;
+  opacity: 1;
+  transition:opacity .3s ease;
+}
+.sectionCustom__firstBlock-link:hover{
+  opacity: 0.7;
 }
 .sectionCustom__products{
   display: flex;
@@ -169,7 +174,7 @@ ul{
   border-bottom:2px solid #0156FF;
 }
 .sectionMonitors{
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .sectionMonitors__firstBlock{
   background-image: url('/public/images/sectionMonitors/image 30.png');
@@ -197,4 +202,127 @@ ul{
   100%{
     opacity: 1; 
   }
+}
+
+.sectionCompanies{
+  margin-bottom: 75px;
+}
+.sectionCompanies__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* указываем стили отдельно swiper,чтобы он отобразился */
+.swiper{
+  max-width: 1160px;
+  height: 310px;
+}
+.sectionSwiper__inner{
+  position: relative;
+}
+.swiperSlide__inner{
+  padding: 50px 120px 70px 120px;
+  background-color: #F5F7FF;
+}
+.swiperSlide__topBlock{
+  display: flex;
+  justify-content: start;
+  gap:25px;
+}
+.swiperSlide__title{
+  font-size: 96px;
+  font-weight: 400;
+  color:#000;
+}
+.swiperSlide__text{
+  margin-top: 22px;
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+.swiperSlide__bottomBlock{
+  display: flex;
+  justify-content: end;
+}
+.swiperSlide__bottomBlock-text{
+  font-size: 14px;
+}
+
+/* указываем для пагинации этого swiper возле свойств !important,чтобы перебить стили,назначенные swiper до этого,чтобы работало */
+.swiper-pagination-bullets {
+  position: absolute !important;
+  bottom:60px !important;
+  left: 420px !important;
+}
+
+.sectionSupport{
+  padding: 40px 120px;
+}
+.sectionSupport__inner{
+  display: flex;
+  gap:130px;
+}
+.sectionSupport__item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.sectionSupport__item-img{
+  margin-bottom: 25px;
+}
+.sectionSupport__title{
+  margin-bottom: 13px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.sectionSupport__desc{
+  font-size: 14px;
+}
+.footer{
+  padding: 50px 0;
+  background-color: #000;
+  color:#e0e0e0;
+}
+.footer__top{
+  padding-bottom: 35px;
+  border-bottom: 1px solid #616161;
+  margin-bottom: 15px;
+}
+.footer__titles{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin-bottom: 10px;
+}
+.footer__title{
+  color:#838383;
+  font-size: 18px;
+  font-weight: 700;
+}
+.footer__lists{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+.footer__menu-link{
+  display: block;
+  margin-bottom: 5px;
+}
+.footer__menu-textAddress{
+  margin-bottom: 5px;
+}
+.footer__bottom-text{
+  color:#838383;
+  font-size: 14px;
+}
+.footer__menu-linkPhone{
+  color:#4e7edd;
+}
+.footer__bottom-images{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.footer__bottom{
+  display: flex;
+  justify-content: space-between;
 }
