@@ -1,0 +1,144 @@
+{
+    "catalogProducts":[
+        {
+            "id":1,
+            "name":"Acer Aspire TC-1760-UA92",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"CUSTOM PCS",
+            "price":499,
+            "amount":1,
+            "totalPrice":499,
+            "rating":4
+        },
+        {
+            "id":2,
+            "name":"Dell XPS Desktop (8960)",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":799,
+            "amount":1,
+            "totalPrice":799,
+            "rating":4
+        },
+        {
+            "id":3,
+            "name":"NZXT Player: One",
+            "image":"/images/sectionLaptops/image 29.png",
+            "category":"HP/COMPAQ PCS",
+            "price":399,
+            "amount":1,
+            "totalPrice":399,
+            "rating":4
+        },
+        {
+            "id":4,
+            "name":"Alienware Aurora R16",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"HP/COMPAQ PCS",
+            "price":339,
+            "amount":1,
+            "totalPrice":339,
+            "rating":4
+        },
+        {
+            "id":5,
+            "name":"Lenovo Legion Tower 7i Gen 8",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"CUSTOM PCS",
+            "price":999,
+            "amount":1,
+            "totalPrice":999,
+            "rating":4
+        },
+        {
+            "id":6,
+            "name":"Dell OptiPlex 5090 Tower",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":1799,
+            "amount":1,
+            "totalPrice":1799,
+            "rating":4
+        },
+        {
+            "id":7,
+            "name":"Lenovo IdeaCentre AIO 3i",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"HP/COMPAQ PCS",
+            "price":1355,
+            "amount":1,
+            "totalPrice":1355,
+            "rating":4
+        },
+        {
+            "id":8,
+            "name":"Apple iMac 24-Inch (2023, M3)",
+            "image":"/images/sectionLaptops/image 29.png",
+            "category":"CUSTOM PCS",
+            "price":1099,
+            "amount":1,
+            "totalPrice":1099,
+            "rating":4
+        },
+        {
+            "id":9,
+            "name":"Apple Mac mini (2023, M2 Pro)",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"CUSTOM PCS",
+            "price":1499,
+            "amount":1,
+            "totalPrice":1499,
+            "rating":4
+        },
+        {
+            "id":10,
+            "name":"MSI Pro DP21",
+            "image":"/images/sectionLaptops/image 29.png",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":3235,
+            "amount":1,
+            "totalPrice":3235,
+            "rating":4
+        },
+        {
+            "id":11,
+            "name":"Falcon Northwest Talon (2024, Threadripper Pro)",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"HP/COMPAQ PCS",
+            "price":3578,
+            "amount":1,
+            "totalPrice":3578,
+            "rating":4
+        },
+        {
+            "id":12,
+            "name":"HP Z2 Mini G9",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"HP/COMPAQ PCS",
+            "price":449,
+            "amount":1,
+            "totalPrice":449,
+            "rating":4
+        },
+        {
+            "id":13,
+            "name":"HP ProDesk 400 G7 MT",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"HP/COMPAQ PCS",
+            "price":585,
+            "amount":1,
+            "totalPrice":585,
+            "rating":4
+        },
+        {
+            "id":14,
+            "name":"DELL Vostro 3681 SFF",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":2099,
+            "amount":1,
+            "totalPrice":2099,
+            "rating":4
+        }
+    ]
+}

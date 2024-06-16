@@ -1,10 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ProductItem from "../components/ProductItem";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { IProduct } from "../types/types";
 
 const Catalog = () => {
 
-    const [categorySelect,setCategorySelect] = useState(false);
-    const [priceSelect,setPriceSelect] = useState(false);
-    const [sortBySelect,setSortBySelect] = useState(false);
+    const [categorySelect, setCategorySelect] = useState(false);
+    const [priceSelect, setPriceSelect] = useState(false);
+    const [sortBySelect, setSortBySelect] = useState(false);
+
+    const [categoryFilter, setCategoryFilter] = useState('');
+    const [priceFilter, setPriceFilter] = useState('');
+    const [sortByFilter, setSortByFilter] = useState('');
+
+    const [loader,setLoader]=useState(false);
+
+    const {data,isLoading,error} = useQuery({
+        queryKey:['catalogProducts'],
+        queryFn: async () => {
+            const response = await axios.get<IProduct[]>('http://localhost:5000/catalogProducts');
+
+            return response;
+        }
+    })
+
+
+
+    // функция для удаления фильтров,можно было поместить все фильтры в одно состояние,но и так можно(их мало)
+    const removeAllFilters=()=>{
+        setCategoryFilter('');
+        setPriceFilter('');
+        setSortByFilter('');
+    }
+
+    useEffect(()=>{
+        setLoader(true); // делаем состояние loader true
+
+        // через 0.5s делаем состояние loader false(чтобы лоадер убрался)
+        window.setTimeout(()=>{
+            setLoader(false);
+        },500) 
+
+
+    },[])
+
 
     return (
         <section className="sectionCatalog">
@@ -17,30 +57,51 @@ const Catalog = () => {
                     <div className="sectionCatalog__mainBlock-filterBar">
                         <div className="filterBar__main">
                             <h2 className="filterBar__title">Filters</h2>
-                            <div className="filterBar__select" onClick={()=>setCategorySelect((prev)=>!prev)}>
+                            <div className="filterBar__select" onClick={() => setCategorySelect((prev) => !prev)}>
                                 <img src="/images/sectionCatalog/Vector 11.png" alt="" className={categorySelect ? "filterBar__select-img filterBar__select-img--active" : "filterBar__select-img"} />
                                 <p className="filterBar__select-title">Category</p>
                                 <div className={categorySelect ? 'filterBar__select-optionsBlock filterBar__select-optionsBlock--active' : 'filterBar__select-optionsBlock'}>
-                                    <p className="optionsBlock__text">CUSTOM PCS</p>
-                                    <p className="optionsBlock__text">MSI ALL-IN-ONE PCS</p>
-                                    <p className="optionsBlock__text">HP/COMPAQ PCS</p>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setCategoryFilter('CUSTOM PCS')}>CUSTOM PCS</p>
+                                        <p className="optionsBlock__optionBlock-number">(20)</p>
+                                    </div>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setCategoryFilter('MSI ALL-IN-ONE PCS')}>MSI ALL-IN-ONE PCS</p>
+                                        <p className="optionsBlock__optionBlock-number">(5)</p>
+                                    </div>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setCategoryFilter('HP/COMPAQ PCS')}>HP/COMPAQ PCS</p>
+                                        <p className="optionsBlock__optionBlock-number">(10)</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="filterBar__select" onClick={()=>setPriceSelect((prev)=>!prev)}>
+                            <div className="filterBar__select" onClick={() => setPriceSelect((prev) => !prev)}>
                                 <img src="/images/sectionCatalog/Vector 11.png" alt="" className={priceSelect ? "filterBar__select-img filterBar__select-img--active" : "filterBar__select-img"} />
                                 <p className="filterBar__select-title">Price</p>
                                 <div className={priceSelect ? 'filterBar__select-optionsBlockPrice filterBar__select-optionsBlockPrice--active' : 'filterBar__select-optionsBlockPrice'}>
-                                    <p className="optionsBlock__text">$0.00 - $1,000.00</p>
-                                    <p className="optionsBlock__text">$1,000.00 - $2,000.00</p>
-                                    <p className="optionsBlock__text">$2,000.00 - $3,000.00</p>
-                                    <p className="optionsBlock__text">$3,000.00 And Above</p>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setPriceFilter('$0.00 - $1,000.00')}>$0.00 - $1,000.00</p>
+                                        <p className="optionsBlock__optionBlock-number">(20)</p>
+                                    </div>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setPriceFilter('$1,000.00 - $2,000.00')}>$1,000.00 - $2,000.00</p>
+                                        <p className="optionsBlock__optionBlock-number">(10)</p>
+                                    </div>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setPriceFilter('$2,000.00 - $3,000.00')}>$2,000.00 - $3,000.00</p>
+                                        <p className="optionsBlock__optionBlock-number">(8)</p>
+                                    </div>
+                                    <div className="optionsBlock__optionBlock">
+                                        <p className="optionsBlock__text" onClick={()=>setPriceFilter('$3,000.00 And Above')}>$3,000.00 And Above</p>
+                                        <p className="optionsBlock__optionBlock-number">(5)</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="filterBar__select" onClick={()=>setSortBySelect((prev)=>!prev)}>
+                            <div className="filterBar__select" onClick={() => setSortBySelect((prev) => !prev)}>
                                 <img src="/images/sectionCatalog/Vector 11.png" alt="" className={sortBySelect ? "filterBar__select-img filterBar__select-img--active" : "filterBar__select-img"} />
                                 <p className="filterBar__select-title">Sort By</p>
                                 <div className={sortBySelect ? 'filterBar__select-optionsBlock filterBar__select-optionsBlock--active' : 'filterBar__select-optionsBlock'}>
-                                    <p className="optionsBlock__text">Rating</p>
+                                    <p className="optionsBlock__text" onClick={()=>setSortByFilter('Rating')}>Rating</p>
                                 </div>
                             </div>
                         </div>
@@ -72,35 +133,64 @@ const Catalog = () => {
                             <p className="productsBlock__topBlock-text">10 items</p>
                             <input type="text" className="productsBlock__topBlock-input" placeholder="Search" />
                         </div>
-                        <div className="productsBlock__products">
-                            <div className="sectionCustom__products-item">
-                                <div className="products__item-imgBlock">
-                                    <img src="/images/sectionCustom/image 29.jpg" alt="" className="products__item-img" />
-                                </div>
-                                <div className="products__item-mark">
-                                    <div className="mark__stars">
-                                        <div className="mark__stars1">
-                                            <img src="/images/sectionCustom/Star 6.png" alt="" className="mark__stars1-img" />
-                                        </div>
-                                        <div className="mark__stars2">
-                                            <img src="/images/sectionCustom/Star 6.png" alt="" className="mark__stars2-img" />
-                                        </div>
-                                        <div className="mark__stars3">
-                                            <img src="/images/sectionCustom/Star 6.png" alt="" className="mark__stars3-img" />
-                                        </div>
-                                        <div className="mark__stars4">
-                                            <img src="/images/sectionCustom/Star 6.png" alt="" className="mark__stars4-img" />
-                                        </div>
-                                        <div className="mark__stars5">
-                                            <img src="/images/sectionCustom/Star 10.png" alt="" className="mark__stars5-img" />
-                                        </div>
+
+                        {/* если состояния фильтров не равны пустым строкам,то отображаем блок с фильтрами и внутри него делаем проверки на каждый фильтр(существует ли он) и тогда показывать или не показывать блоки этих фильтров */}
+                        {categoryFilter !== '' || priceFilter !== '' || sortByFilter !== '' ?
+                            <div className="productsBlock__filtersBlock">
+                                {categoryFilter !== '' ?
+                                    <div className="productsBlock__filtersBlock-filter">
+                                        <p className="filter__text">{categoryFilter}</p>
+                                        <button className="filter__btn" onClick={()=>setCategoryFilter('')}>
+                                            <img src="/images/sectionCatalog/Group 108.png" alt="" className="filter__btn-img" />
+                                        </button>
                                     </div>
-                                    <p className="mark__text">Reviews (4)</p>
-                                </div>
-                                <h2 className="products__item-title">EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...</h2>
-                                <p className="products__item-price">$499.00</p>
+                                    : ''
+                                }
+
+                                {priceFilter !== '' ?
+                                    <div className="productsBlock__filtersBlock-filter">
+                                        <p className="filter__text">{priceFilter}</p>
+                                        <button className="filter__btn" onClick={()=>setPriceFilter('')}>
+                                            <img src="/images/sectionCatalog/Group 108.png" alt="" className="filter__btn-img" />
+                                        </button>
+                                    </div>
+                                    : ''
+                                }
+
+                                {sortByFilter !== '' ?
+                                    <div className="productsBlock__filtersBlock-filter">
+                                        <p className="filter__text">{sortByFilter}</p>
+                                        <button className="filter__btn" onClick={()=>setSortByFilter('')}>
+                                            <img src="/images/sectionCatalog/Group 108.png" alt="" className="filter__btn-img" />
+                                        </button>
+                                    </div>
+                                    : ''
+                                }
+
+
+                                <button className="productsBlock__filterBlock-clear" onClick={removeAllFilters}>Clear All</button>
+
                             </div>
-                        </div>
+                            : ''
+                        }
+
+                        {error && <h3>{error.message}</h3>}
+
+                        {/* если isLoading true или loader true,то показываем загрузку,в другом случае если data?.data.length(длина массива товаров) true(то есть они есть),выводим товары в другом случае если !error true(то есть error = false,ошибки нет),то выводим Not found,в другом случае,если ошибка есть,выводим пустую строку(то есть текст not found не выводим) */}
+                        {isLoading || loader ?
+                            <div className="productsBlock__loaderBlock">
+                                <div className="loaderBlock__loader"></div>
+                            </div>
+                            :
+                            <div className="productsBlock__products">
+                                {data?.data.length ? data?.data.map(product =>
+                                    <ProductItem key={product.id} product={product}/>)
+                                    : !error ? 
+                                        <h4>Not found</h4>
+                                    : ''
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
