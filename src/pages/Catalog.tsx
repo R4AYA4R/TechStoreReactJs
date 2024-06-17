@@ -3,6 +3,7 @@ import ProductItem from "../components/ProductItem";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { IProduct } from "../types/types";
+import { getPagesArray } from "../utils/getPagesArray";
 
 const Catalog = () => {
 
@@ -16,10 +17,23 @@ const Catalog = () => {
 
     const [loader,setLoader]=useState(false);
 
-    const {data,isLoading,error} = useQuery({
+    const [limit,setLimit] = useState(5);
+    const [page,setPage] = useState(1);
+    const [totalPages,setTotalPages] = useState(0);
+
+    const {data,isLoading,error,refetch} = useQuery({
         queryKey:['catalogProducts'],
         queryFn: async () => {
-            const response = await axios.get<IProduct[]>('http://localhost:5000/catalogProducts');
+            const response = await axios.get<IProduct[]>('http://localhost:5000/catalogProducts',{
+                params:{
+                    _limit:limit,
+                    _page:page
+                }
+            });
+
+            const totalCount = data?.headers['x-total-count']; // записываем общее количество объектов(в данном случае объектов для товаров),полученных от сервера в переменную
+
+            setTotalPages(Math.ceil(totalCount/limit)); //с помощью Math.ceil округляем получившееся значение в большую сторону,например,если элементов 105,а лимит 10,то округляем получившееся деление до 11,чтобы получить 11 страниц и вывести потом оставшиеся элементы на эту (11-ую в данном случае) страницу
 
             return response;
         }
@@ -34,6 +48,20 @@ const Catalog = () => {
         setSortByFilter('');
     }
 
+    const prevPage=()=>{
+        // если текущая страница больше или равна 2
+        if(page >= 2){
+            setPage((prev) => prev - 1); // изменяем состояние текущей страницы на - 1(то есть в setPage берем prev(предыдущее значение,то есть текущее) и отнимаем 1)
+        }
+    }
+
+    const nextPage=()=>{
+        // если текущая страница меньше или равна общему количеству страниц - 1(чтобы после последней страницы не переключалось дальше)
+        if(page <= totalPages - 1){
+            setPage((prev) => prev + 1); // изменяем состояние текущей страницы на + 1(то есть в setPage берем prev(предыдущее значение,то есть текущее) и отнимаем 1)
+        }
+    }
+
     useEffect(()=>{
         setLoader(true); // делаем состояние loader true
 
@@ -45,6 +73,14 @@ const Catalog = () => {
 
     },[])
 
+    // делаем запрос через useQuery еще раз,при изменении page(состояния текущей страницы),data?.data (массив товаров),изменении инпута поиска и category(категории товаров)
+    useEffect(()=>{
+
+        refetch();
+
+    },[data?.data,page])
+
+    let pagesArray = getPagesArray(totalPages,page);
 
     return (
         <section className="sectionCatalog">
@@ -191,6 +227,33 @@ const Catalog = () => {
                                 }
                             </div>
                         }
+
+                        <div className="productsBlock__pages">
+
+                            <button className="productsBlock__pages-page" onClick={prevPage}>{'<'}</button>
+
+                            {pagesArray.map(p => 
+                                <button
+                                    key = {p}
+
+                                    className={page === p ? "productsBlock__pages-page productsBlock__pages-page--active" : "productsBlock__pages-page"} //если состояние номера страницы page равно значению элементу массива pagesArray,то отображаем такие классы,в другом случае другие
+
+                                    onClick={()=>setPage(p)} // отслеживаем на какую кнопку нажал пользователь и делаем ее активной,изменяем состояние текущей страницы page на значение элемента массива pagesArray(то есть страницу,на которую нажал пользователь)
+                                >
+                                    {p}
+                                </button>
+                            )}
+
+                            {/* если общее количество страниц больше 3 и текущая страница меньше общего количества страниц - 1,то отображаем три точки */}
+                            {totalPages > 4 && page < totalPages - 2 && <div className="productsBlock__pages-dots">...</div>}
+
+                            {/* если общее количество страниц больше 3 и текущая страница меньше общего количества страниц - 1,то отображаем кнопку последней страницы */}
+                            {totalPages > 3 && page < totalPages - 1 && <button className="productsBlock__pages-page" onClick={()=>setPage(totalPages)}>{totalPages}</button>}
+
+                            <button className="productsBlock__pages-page" onClick={nextPage}>{'>'}</button>
+
+                        </div>
+
                     </div>
                 </div>
             </div>

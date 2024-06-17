@@ -132,12 +132,162 @@
         },
         {
             "id":14,
-            "name":"DELL Vostro 3681 SFF",
+            "name":"AOL Force Five",
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
-            "price":2099,
+            "price":659,
             "amount":1,
-            "totalPrice":2099,
+            "totalPrice":659,
+            "rating":4
+        },
+        {
+            "id":15,
+            "name":"Byte Clubhouse",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"CUSTOM PCS",
+            "price":2498,
+            "amount":1,
+            "totalPrice":2498,
+            "rating":4
+        },
+        {
+            "id":16,
+            "name":"Digital Deluxe",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"HP/COMPAQ PCS",
+            "price":1088,
+            "amount":1,
+            "totalPrice":1088,
+            "rating":4
+        },
+        {
+            "id":17,
+            "name":"Hacker Heaven II",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"CUSTOM PCS",
+            "price":4099,
+            "amount":1,
+            "totalPrice":4099,
+            "rating":4
+        },
+        {
+            "id":18,
+            "name":"Glitch Galaxy",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"HP/COMPAQ PCS",
+            "price":459,
+            "amount":1,
+            "totalPrice":459,
+            "rating":4
+        },
+        {
+            "id":19,
+            "name":"Server Station",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":899,
+            "amount":1,
+            "totalPrice":899,
+            "rating":4
+        },
+        {
+            "id":20,
+            "name":"The Bit Bunch",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":2398,
+            "amount":1,
+            "totalPrice":2398,
+            "rating":4
+        },
+        {
+            "id":21,
+            "name":"Web World",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"CUSTOM PCS",
+            "price":767,
+            "amount":1,
+            "totalPrice":767,
+            "rating":4
+        },
+        {
+            "id":22,
+            "name":"Wi-Fi Wonderland",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"CUSTOM PCS",
+            "price":1155,
+            "amount":1,
+            "totalPrice":1155,
+            "rating":4
+        },
+        {
+            "id":23,
+            "name":"Database Delight",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"HP/COMPAQ PCS",
+            "price":1786,
+            "amount":1,
+            "totalPrice":1786,
+            "rating":4
+        },
+        {
+            "id":24,
+            "name":"The Geek Getaway",
+            "image":"/images/sectionCatalog/image 29 (1).png",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":735,
+            "amount":1,
+            "totalPrice":735,
+            "rating":4
+        },
+        {
+            "id":25,
+            "name":"Byte Bungalow",
+            "image":"/images/sectionCatalog/image 29.png",
+            "category":"CUSTOM PCS",
+            "price":1999,
+            "amount":1,
+            "totalPrice":1999,
+            "rating":4
+        },
+        {
+            "id":26,
+            "name":"Tech Tavern",
+            "image":"/images/sectionLaptops/image 29.png",
+            "category":"HP/COMPAQ PCS",
+            "price":858,
+            "amount":1,
+            "totalPrice":858,
+            "rating":4
+        },
+        {
+            "id":27,
+            "name":"SilverBullet",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":1298,
+            "amount":1,
+            "totalPrice":1298,
+            "rating":4
+        },
+        {
+            "id":28,
+            "name":"InfinityTech",
+            "image":"/images/sectionLaptops/image 29.png",
+            "category":"HP/COMPAQ PCS",
+            "price":1699,
+            "amount":1,
+            "totalPrice":1699,
+            "rating":4
+        },
+        {
+            "id":29,
+            "name":"StarDrive",
+            "image":"/images/sectionCustom/image 29.jpg",
+            "category":"MSI ALL-IN-ONE PCS",
+            "price":2698,
+            "amount":1,
+            "totalPrice":2698,
             "rating":4
         }
     ]

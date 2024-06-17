@@ -515,3 +515,39 @@ ul{
     transform:rotate(360deg) scale(1.4);
   }
 }
+
+.productsBlock__pages{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 35px;
+  gap:10px;
+}
+
+.productsBlock__pages-page{
+  padding: 8px 16px;
+  color:#A2A6B0;
+  border:2px solid #A2A6B0;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #fff;
+  cursor:pointer;
+  opacity: 1;
+  transition:opacity .3s ease;
+  font-family: 'Poppins',sans-serif;
+}
+.productsBlock__pages-page:hover{
+  opacity: 0.5;
+}
+.productsBlock__pages-page--active{
+  color:#000;
+  background-color: #F5F7FF;
+  border:none;
+  padding: 8px 16px;
+}
+.productsBlock__pages-dots{
+  text-align: center;
+}
