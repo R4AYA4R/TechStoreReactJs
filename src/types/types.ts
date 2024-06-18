@@ -5,6 +5,7 @@ export interface IProduct{
     image:string,
     category:string,
     price:number,
+    priceFilter:string,
     amount:number,
     totalPrice:number,
     rating:number

@@ -6,6 +6,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"CUSTOM PCS",
             "price":499,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":499,
             "rating":4
@@ -16,6 +17,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"MSI ALL-IN-ONE PCS",
             "price":799,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":799,
             "rating":4
@@ -26,6 +28,7 @@
             "image":"/images/sectionLaptops/image 29.png",
             "category":"HP/COMPAQ PCS",
             "price":399,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":399,
             "rating":4
@@ -36,6 +39,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"HP/COMPAQ PCS",
             "price":339,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":339,
             "rating":4
@@ -46,6 +50,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"CUSTOM PCS",
             "price":999,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":999,
             "rating":4
@@ -56,6 +61,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
             "price":1799,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1799,
             "rating":4
@@ -66,6 +72,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"HP/COMPAQ PCS",
             "price":1355,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1355,
             "rating":4
@@ -76,6 +83,7 @@
             "image":"/images/sectionLaptops/image 29.png",
             "category":"CUSTOM PCS",
             "price":1099,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1099,
             "rating":4
@@ -86,6 +94,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"CUSTOM PCS",
             "price":1499,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1499,
             "rating":4
@@ -96,6 +105,7 @@
             "image":"/images/sectionLaptops/image 29.png",
             "category":"MSI ALL-IN-ONE PCS",
             "price":3235,
+            "priceFilter":"$3,000.00 And Above",
             "amount":1,
             "totalPrice":3235,
             "rating":4
@@ -106,6 +116,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"HP/COMPAQ PCS",
             "price":3578,
+            "priceFilter":"$3,000.00 And Above",
             "amount":1,
             "totalPrice":3578,
             "rating":4
@@ -116,6 +127,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"HP/COMPAQ PCS",
             "price":449,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":449,
             "rating":4
@@ -126,6 +138,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"HP/COMPAQ PCS",
             "price":585,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":585,
             "rating":4
@@ -136,6 +149,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
             "price":659,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":659,
             "rating":4
@@ -146,6 +160,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"CUSTOM PCS",
             "price":2498,
+            "priceFilter":"$2,000.00 - $3,000.00",
             "amount":1,
             "totalPrice":2498,
             "rating":4
@@ -156,6 +171,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"HP/COMPAQ PCS",
             "price":1088,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1088,
             "rating":4
@@ -166,6 +182,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"CUSTOM PCS",
             "price":4099,
+            "priceFilter":"$3,000.00 And Above",
             "amount":1,
             "totalPrice":4099,
             "rating":4
@@ -176,6 +193,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"HP/COMPAQ PCS",
             "price":459,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":459,
             "rating":4
@@ -186,6 +204,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
             "price":899,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":899,
             "rating":4
@@ -196,6 +215,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"MSI ALL-IN-ONE PCS",
             "price":2398,
+            "priceFilter":"$2,000.00 - $3,000.00",
             "amount":1,
             "totalPrice":2398,
             "rating":4
@@ -206,6 +226,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"CUSTOM PCS",
             "price":767,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":767,
             "rating":4
@@ -216,6 +237,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"CUSTOM PCS",
             "price":1155,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1155,
             "rating":4
@@ -226,6 +248,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"HP/COMPAQ PCS",
             "price":1786,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1786,
             "rating":4
@@ -236,6 +259,7 @@
             "image":"/images/sectionCatalog/image 29 (1).png",
             "category":"MSI ALL-IN-ONE PCS",
             "price":735,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":735,
             "rating":4
@@ -246,6 +270,7 @@
             "image":"/images/sectionCatalog/image 29.png",
             "category":"CUSTOM PCS",
             "price":1999,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1999,
             "rating":4
@@ -256,6 +281,7 @@
             "image":"/images/sectionLaptops/image 29.png",
             "category":"HP/COMPAQ PCS",
             "price":858,
+            "priceFilter":"$0.00 - $1,000.00",
             "amount":1,
             "totalPrice":858,
             "rating":4
@@ -266,6 +292,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
             "price":1298,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1298,
             "rating":4
@@ -276,6 +303,7 @@
             "image":"/images/sectionLaptops/image 29.png",
             "category":"HP/COMPAQ PCS",
             "price":1699,
+            "priceFilter":"$1,000.00 - $2,000.00",
             "amount":1,
             "totalPrice":1699,
             "rating":4
@@ -286,6 +314,7 @@
             "image":"/images/sectionCustom/image 29.jpg",
             "category":"MSI ALL-IN-ONE PCS",
             "price":2698,
+            "priceFilter":"$2,000.00 - $3,000.00",
             "amount":1,
             "totalPrice":2698,
             "rating":4
