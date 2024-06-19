@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
+import SectionSupport from "./components/SectionSupport";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             </Routes>
           </div>
         </main>
+        <SectionSupport/>
         <Footer/>
       </div>
     </BrowserRouter>
