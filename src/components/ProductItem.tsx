@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { IProduct } from "../types/types";
 
 interface IProductProps{
@@ -5,8 +6,12 @@ interface IProductProps{
 }
 
 const ProductItem = ({product}:IProductProps) => {
+
+    const router = useNavigate(); // useNavigate может перемещатьтся на другую страницу вместо ссылок
+
     return (
-        <a href="#" className="products__linkItem">
+        // указываем у div в onClick router(наш useNavigate) и указываем путь,куда будет вести этот useNavigate,указываем,что он будет вести на страницу товара по конкретному id (product.id)
+        <div className="products__linkItem" onClick={()=>router(`/catalog/${product.id}`)}>
             <div className="sectionCustom__products-item">
                 <div className="products__item-imgBlock">
                     <img src={product.image} alt="" className="products__item-img" />
@@ -34,7 +39,7 @@ const ProductItem = ({product}:IProductProps) => {
                 <h2 className="products__item-title">{product.name}</h2>
                 <p className="products__item-price">${product.price}</p>
             </div>
-        </a>
+        </div>
     )
 }
 

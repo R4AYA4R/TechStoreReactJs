@@ -125,7 +125,7 @@ ul{
 }
 .sectionCustom__products{
   display: flex;
-  gap:10px;
+  gap:20px;
   align-items: center;
 }
 .sectionCustom__products-item{
@@ -168,6 +168,14 @@ ul{
   font-size: 18px;
   color:#000;
 }
+.products__linkItem{
+  cursor:pointer;
+  opacity: 1;
+  transition:opacity .3s ease;
+}
+.products__linkItem:hover{
+  opacity: 0.5;
+}
 .sectionLaptops{
   padding-bottom: 40px;
 }
@@ -201,10 +209,15 @@ ul{
 .sectionMonitors__firstBlock{
   background-image: url('/public/images/sectionMonitors/image 30.png');
 }
-.sectionCustom__products-itemOp0{
+.sectionLaptops__products{
+  display: flex;
+  align-items: center;
+  gap:20px;
+}
+.sectionLaptops__products-Op0{
   animation: op 1s ease;
 }
-.sectionCustom__products-itemOp2{
+.sectionLaptops__products-Op2{
   animation: op2 1s ease;
 }
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SectionMonitors = () => {
     return (
@@ -5,7 +6,7 @@ const SectionMonitors = () => {
             <div className="sectionCustom__inner">
                 <div className="sectionCustom__firstBlock sectionMonitors__firstBlock">
                     <h1 className="sectionCustom__firstBlock-title">Gaming Monitors</h1>
-                    <a href="#" className="sectionCustom__firstBlock-link">See All Products</a>
+                    <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
                 </div>
                 <div className="sectionCustom__products">
                     <div className="sectionCustom__products-item">
