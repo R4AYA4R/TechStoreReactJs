@@ -567,3 +567,123 @@ ul{
 .productsBlock__pages-dots{
   text-align: center;
 }
+.sectionProductPageTop{
+  padding-bottom: 60px;
+}
+.sectionProductPageTop__top{
+  padding: 40px 0;
+}
+.sectionProductPageTop__top-tabs{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.sectionProductPageTop__main{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.top__tabs-btn{
+  font-size: 14px;
+  font-weight: 600;
+  color:#616161;
+  background-color: #fff;
+  border: none;
+  padding-bottom: 5px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+.top__tabs-btn:hover{
+  opacity: 0.5;
+}
+.top__tabs-btn--active{
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  border-bottom: 2px solid #0156FF;
+}
+.main__leftBlock-subtitle{
+  font-weight: 500;
+  font-size: 12px;
+  color:#A3A3A3;
+  margin-bottom: 20px;
+}
+.main__leftBlock-title{
+  font-weight: 500;   
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+.sectionProductPageTop__main-leftBlock{
+  max-width: 600px;
+}
+.main__leftBlock-desc{
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.leftBlock__cartBlock-price{
+  font-weight: 600;
+  font-size: 22px;
+}
+.main__leftBlock-cartBlock{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.leftBlock__cartBlock-priceAndInput{
+  display: flex;  
+  gap: 20px;
+}
+.leftBlock__cartBlock-cartBtn{
+  background-color: #0156FF;
+  color: #fff;
+  font-weight: 500;
+  padding: 12px 24px;
+  border:none;
+  border-radius: 50px;
+  cursor:pointer;
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+.leftBlock__cartBlock-cartBtn:hover{
+  opacity: 0.7;
+}
+.leftBlock__cartBlock-inputBlock{
+  max-width: 70px;
+  position: relative;
+}
+
+/* убираем стрелки вверх и вниз для инпута по умолчанию */
+.cartBlock__inputBlock-input::-webkit-inner-spin-button,
+.cartBlock__inputBlock-input::-webkit-outer-spin-button{
+  appearance: none;
+}
+
+.cartBlock__inputBlock-input{
+  background-color: #F5F7FF;
+  border: none;
+  outline: none;
+  padding: 10px 24px 10px 15px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 13px;
+}
+.cartBlock__inputBlock-btnUp{
+  max-width: 16px;
+  border: none;
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  cursor: pointer;
+  background-color: #F5F7FF;
+}
+.cartBlock__inputBlock-btnDown{
+  position: absolute;
+  max-width: 16px;
+  background-color: #F5F7FF;
+  bottom: -1px;
+  right: 3px;
+  cursor: pointer;
+  border: none;
+}
