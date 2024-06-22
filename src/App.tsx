@@ -15,13 +15,11 @@ function App() {
       <div className="wrapper">
         <Header/>
         <main className="main">
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/catalog" element={<Catalog/>}/>
-              <Route path="/catalog/:id" element={<ProductIdPage/>}/> {/* указываем после /catalog/ :id,для динамического id,чтобы потом открывалась отдельная страница товара по конкретному id  */}
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/catalog" element={<Catalog/>}/>
+            <Route path="/catalog/:id" element={<ProductIdPage/>}/> {/* указываем после /catalog/ :id,для динамического id,чтобы потом открывалась отдельная страница товара по конкретному id  */}
+          </Routes>
         </main>
         <SectionSupport/>
         <Footer/>

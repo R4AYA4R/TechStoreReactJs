@@ -42,49 +42,51 @@ const SectionLaptops = () => {
 
     return (
         <section className="sectionLaptops">
-            <div className="sectionLaptops__inner">
-                <div className="sectionLaptops__tabs">
-                    <ul className="tabs__list">
-                        <li className="tabs__list-item">
-                            <button className={tab === 'gs' ? 'tabs__item-btn tabs__item-btn--active' : 'tabs__item-btn'} onClick={() => setTab('gs')}>MSI GS Series</button>
-                        </li>
-                        <li className="tabs__list-item">
-                            <button className={tab === 'gt' ? 'tabs__item-btn tabs__item-btn--active' : 'tabs__item-btn'} onClick={() => setTab('gt')} >MSI GT Series</button>
-                        </li>
-                    </ul>
-                </div>
-                <div className="sectionLaptops__laptopsBlock sectionCustom__products">
-                    <div className="sectionCustom__firstBlock sectionLaptops__firstBlock">
-                        <h1 className="sectionCustom__firstBlock-title">MSI Laptops</h1>
-                        <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
+            <div className="container">
+                <div className="sectionLaptops__inner">
+                    <div className="sectionLaptops__tabs">
+                        <ul className="tabs__list">
+                            <li className="tabs__list-item">
+                                <button className={tab === 'gs' ? 'tabs__item-btn tabs__item-btn--active' : 'tabs__item-btn'} onClick={() => setTab('gs')}>MSI GS Series</button>
+                            </li>
+                            <li className="tabs__list-item">
+                                <button className={tab === 'gt' ? 'tabs__item-btn tabs__item-btn--active' : 'tabs__item-btn'} onClick={() => setTab('gt')} >MSI GT Series</button>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="laptopsBlock__laptops">
-                        {tab === 'gs' ?
-                            <div className={tab === 'gs' ? 'sectionLaptops__products sectionLaptops__products-Op0' : 'sectionLaptops__products'}>
+                    <div className="sectionLaptops__laptopsBlock sectionCustom__products">
+                        <div className="sectionCustom__firstBlock sectionLaptops__firstBlock">
+                            <h1 className="sectionCustom__firstBlock-title">MSI Laptops</h1>
+                            <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
+                        </div>
+                        <div className="laptopsBlock__laptops">
+                            {tab === 'gs' ?
+                                <div className={tab === 'gs' ? 'sectionLaptops__products sectionLaptops__products-Op0' : 'sectionLaptops__products'}>
 
-                                {/* если есть ошибка,то выводим ее сообщение */}
-                                {error && <h3>{error.message}</h3>}
+                                    {/* если есть ошибка,то выводим ее сообщение */}
+                                    {error && <h3>{error.message}</h3>}
 
-                                {/* если data?.data.length true(то есть есть товары),то выводим их,в другом случае пустая строка(то есть ничего не выводим) */}
-                                {data?.data.length ? data?.data.map(product =>
-                                    <ProductItem key={product.id} product={product}/>)
-                                    : ''
-                                }
+                                    {/* если data?.data.length true(то есть есть товары),то выводим их,в другом случае пустая строка(то есть ничего не выводим) */}
+                                    {data?.data.length ? data?.data.map(product =>
+                                        <ProductItem key={product.id} product={product}/>)
+                                        : ''
+                                    }
 
-                            </div>
-                            :
-                            <div className={tab === 'gt' ? 'sectionLaptops__products sectionLaptops__products-Op2' : 'sectionLaptops__products '}>
+                                </div>
+                                :
+                                <div className={tab === 'gt' ? 'sectionLaptops__products sectionLaptops__products-Op2' : 'sectionLaptops__products '}>
 
-                                {errorHp && <h3>{errorHp.message}</h3>}
+                                    {errorHp && <h3>{errorHp.message}</h3>}
 
-                                {dataHp?.data.length ? dataHp?.data.map(product =>
-                                    <ProductItem key={product.id} product={product}/>)
-                                    : ''
-                                }
+                                    {dataHp?.data.length ? dataHp?.data.map(product =>
+                                        <ProductItem key={product.id} product={product}/>)
+                                        : ''
+                                    }
 
-                            </div>
-                        }
+                                </div>
+                            }
 
+                        </div>
                     </div>
                 </div>
             </div>

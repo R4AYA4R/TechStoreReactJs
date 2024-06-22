@@ -22,21 +22,23 @@ const SectionCustom = ()=>{
 
     return(
         <section className="sectionCustom">
-            <div className="sectionCustom__inner">
-                <div className="sectionCustom__firstBlock">
-                    <h1 className="sectionCustom__firstBlock-title">Custom Builds</h1>
-                    <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
-                </div>
-                <div className="sectionCustom__products">
+            <div className="container">
+                <div className="sectionCustom__inner">
+                    <div className="sectionCustom__firstBlock">
+                        <h1 className="sectionCustom__firstBlock-title">Custom Builds</h1>
+                        <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
+                    </div>
+                    <div className="sectionCustom__products">
 
-                    {error && <h3>{error.message}</h3>}
+                        {error && <h3>{error.message}</h3>}
 
-                    {data?.data.length ? data?.data.map(product => 
-                        <ProductItem key={product.id} product={product}/>)
-                        : ''
-                    }
+                        {data?.data.length ? data?.data.map(product => 
+                            <ProductItem key={product.id} product={product}/>)
+                            : ''
+                        }
 
 
+                    </div>
                 </div>
             </div>
         </section>
