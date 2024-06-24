@@ -10,3 +10,11 @@ export interface IProduct{
     totalPrice:number,
     rating:number
 }
+
+export interface IComment{
+    id:number | undefined,
+    nameFor:string | undefined,
+    name:string,
+    text:string,
+    rating:number
+}

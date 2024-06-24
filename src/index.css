@@ -757,6 +757,7 @@ ul {
   display: flex;
   align-items: top;
   flex-direction: column;
+  max-width: 1000px;
 }
 
 .leftBlockComments__topline {
@@ -990,4 +991,16 @@ ul {
   font-weight: 200;
   color: #fff;
   text-align: center;
+}
+.leftBlockComments__top-topline{
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 15px;
+}
+.leftBlockComments__text{
+  margin-bottom: 15px;
+}
+.leftBlockComments__topline-btnComm{
+  max-width: 135px;
 }
