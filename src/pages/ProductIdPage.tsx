@@ -26,12 +26,14 @@ const ProductIdPage = () => {
 
     const [formErrorName, setFormErrorName] = useState(false);
 
-    const [commForName,setCommForName] = useState<IComment[] | undefined>([])
+    const [commForName, setCommForName] = useState<IComment[] | undefined>([])
 
     const [commentsForName, setCommentsForName] = useState<IComment[] | undefined>([]);
 
+    const [commentsRatingMain, setCommentsRatingMain] = useState(0);
 
-    const { data } = useQuery({
+
+    const { data, refetch } = useQuery({
         queryKey: ['productPageId'],
         queryFn: async () => {
             // делаем запрос на сервер по конкретному id,который достали из url
@@ -42,6 +44,26 @@ const ProductIdPage = () => {
     })
 
     const [priceProduct, setPriceProduct] = useState(data?.data.price);
+
+    // const { mutate: mutateRating } = useMutation({
+    //     mutationKey: ['update rating'],
+    //     mutationFn: async (rating: number) => {
+    //         await axios.put<IProduct>(`http://localhost:5000/catalogProducts/${params.id}`, {
+    //             name:data?.data.name,
+    //             image:data?.data.image,
+    //             category:data?.data.category,
+    //             price:data?.data.price,
+    //             priceFilter:data?.data.priceFilter,
+    //             amount:data?.data.amount,
+    //             totalPrice:data?.data.totalPrice,
+    //             rating: rating
+    //         } as IProduct);
+
+    //     },
+    //     onSuccess() {
+    //         refetch(); // делаем запрос на сервер еще раз,чтобы обновить данные товара
+    //     }
+    // })
 
 
     // функция для post запроса на сервер с помощью useMutation(react query),создаем комментарий на сервере,берем mutate у useMutation,чтобы потом вызвать эту функцию запроса на сервер в нужный момент
@@ -122,20 +144,45 @@ const ProductIdPage = () => {
 
     }
 
+
+    useEffect(() => {
+        refetchComments(); // делаем запрос на сервер еще раз,чтобы обновить комментарии
+
+        refetch(); // делаем запрос на сервер еще раз,чтобы обновить данные товара
+
+        console.log(commentsRatingMain)
+    }, [data?.data])
+
     // при изменении массива комментариев и массива data?.data(самого товара) переобновляем массив комментарие,фильтруем его и помещаем в состояние(чтобы комментарии показывались для каждого товара отдельные)
     useEffect(() => {
         refetchComments();
 
-        const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name);
+        const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name); // массив данных комментариев фильтруем для каджого товара по его имени
 
         setCommentsForName(dataCommentsForName);
+
+        const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
+
+        // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
+        if (commentsRating && dataCommentsForName?.length) {
+            const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
+
+            setCommentsRatingMain(commentsRatingMiddle);
+
+            // mutateRating(commentsRatingMiddle); // делаем запрос на сервер и изменяем поле rating у этого товара
+        }else{
+            setCommentsRatingMain(0); // если комментариев нет у этого товара,то меняем состояние рейтинга на 1
+        }
+
+        console.log(dataCommentsForName)
+
 
         const commentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name).filter(comm => comm.name === inputFormName); // у каждого комментария если nameFor равно name у товара этой страницы,то оставить в массиве commentsForName,и у нового отфильтрованного массива проверяем some (возвращает true или false при срабатывании условия) ,если name у комментария нового массива равно inputFormName,то оставить в массиве (то есть если пользователь ввел такое же имя,как и у существующего комментария иммено у этого товара,чтобы потом показывалось сообщение,что такое имя уже есть)
 
         setCommForName(commentsForName);
-        
 
-    }, [dataComments?.data,data?.data])
+
+    }, [dataComments?.data, data?.data])
 
     // при изменении inputValue и data?.data(в данном случае данные товара,полученные с сервера,чтобы при запуске страницы сайта уже было значение в priceProduct,без этого стартовое значение priceProduct не становится на data?.data.price) изменяем состояние priceProduct
     useEffect(() => {
@@ -161,6 +208,24 @@ const ProductIdPage = () => {
                             {tab === 'aboutProduct' &&
                                 <div className="sectionProductPageTop__main-leftBlock">
                                     <h2 className="main__leftBlock-subtitle">Home {'>'} Catalog {'>'} {data?.data.category}</h2>
+                                    <div className="main__leftBlock-rating">
+                                        <div className="mark__stars5 " >
+                                            <img src={commentsRatingMain >= 1 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
+                                        </div>
+                                        <div className="mark__stars5" >
+                                            <img src={commentsRatingMain >= 2 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
+                                        </div>
+                                        <div className="mark__stars5" >
+                                            <img src={commentsRatingMain >= 3 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
+                                        </div>
+                                        <div className="mark__stars5" >
+                                            <img src={commentsRatingMain >= 4 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
+                                        </div>
+                                        <div className="mark__stars5" >
+                                            <img src={commentsRatingMain >= 5 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
+                                        </div>
+
+                                    </div>
                                     <h1 className="main__leftBlock-title">{data?.data.name}</h1>
                                     <p className="main__leftBlock-desc">MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop</p>
                                     <div className="main__leftBlock-cartBlock">

@@ -1,18 +1,6 @@
 {
   "catalogProducts": [
     {
-      "id": 1,
-      "name": "Acer Aspire TC-1760-UA92",
-      "image": "/images/sectionCatalog/image 29 (1).png",
-      "category": "CUSTOM PCS",
-      "price": 499,
-      "priceFilter": "$0.00 - $1,000.00",
-      "amount": 1,
-      "totalPrice": 499,
-      "rating": 4
-    },
-    {
-      "id": 2,
       "name": "Dell XPS Desktop (8960)",
       "image": "/images/sectionCatalog/image 29.png",
       "category": "MSI ALL-IN-ONE PCS",
@@ -20,10 +8,10 @@
       "priceFilter": "$0.00 - $1,000.00",
       "amount": 1,
       "totalPrice": 799,
-      "rating": 4
+      "rating": 2,
+      "id": 2
     },
     {
-      "id": 3,
       "name": "NZXT Player: One",
       "image": "/images/sectionLaptops/image 29.png",
       "category": "HP/COMPAQ PCS",
@@ -31,10 +19,21 @@
       "priceFilter": "$0.00 - $1,000.00",
       "amount": 1,
       "totalPrice": 399,
-      "rating": 4
+      "rating": 1.8,
+      "id": 3
     },
     {
-      "id": 4,
+      "name": "Acer Aspire TC-1780-UA92",
+      "image": "/images/sectionCatalog/image 29 (1).png",
+      "category": "HP/COMPAQ PCS",
+      "price": 539,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 1,
+      "totalPrice": 339,
+      "rating": 2,
+      "id": 4
+    },
+    {
       "name": "Alienware Aurora R16",
       "image": "/images/sectionCustom/image 29.jpg",
       "category": "HP/COMPAQ PCS",
@@ -42,21 +41,10 @@
       "priceFilter": "$0.00 - $1,000.00",
       "amount": 1,
       "totalPrice": 339,
-      "rating": 4
+      "rating": 2,
+      "id": 5
     },
     {
-      "id": 5,
-      "name": "Lenovo Legion Tower 7i Gen 8",
-      "image": "/images/sectionCatalog/image 29 (1).png",
-      "category": "CUSTOM PCS",
-      "price": 999,
-      "priceFilter": "$0.00 - $1,000.00",
-      "amount": 1,
-      "totalPrice": 999,
-      "rating": 4
-    },
-    {
-      "id": 6,
       "name": "Dell OptiPlex 5090 Tower",
       "image": "/images/sectionCustom/image 29.jpg",
       "category": "MSI ALL-IN-ONE PCS",
@@ -64,10 +52,10 @@
       "priceFilter": "$1,000.00 - $2,000.00",
       "amount": 1,
       "totalPrice": 1799,
-      "rating": 4
+      "rating": 2.0454545454545454,
+      "id": 6
     },
     {
-      "id": 7,
       "name": "Lenovo IdeaCentre AIO 3i",
       "image": "/images/sectionCatalog/image 29 (1).png",
       "category": "HP/COMPAQ PCS",
@@ -75,18 +63,19 @@
       "priceFilter": "$1,000.00 - $2,000.00",
       "amount": 1,
       "totalPrice": 1355,
-      "rating": 4
+      "rating": 3,
+      "id": 7
     },
     {
-      "id": 8,
-      "name": "Apple iMac 24-Inch (2023, M3)",
-      "image": "/images/sectionLaptops/image 29.png",
-      "category": "CUSTOM PCS",
-      "price": 1099,
+      "name": "Lenovo IdeaCentre AIO 5i",
+      "image": "/images/sectionCatalog/image 29.png",
+      "category": "MSI ALL-IN-ONE PCS",
+      "price": 1855,
       "priceFilter": "$1,000.00 - $2,000.00",
       "amount": 1,
-      "totalPrice": 1099,
-      "rating": 4
+      "totalPrice": 1355,
+      "rating": 3,
+      "id": 8
     },
     {
       "id": 9,
@@ -111,26 +100,26 @@
       "rating": 4
     },
     {
-      "id": 11,
-      "name": "Falcon Northwest Talon (2024, Threadripper Pro)",
+      "name": "Falcon Northwest Talon",
       "image": "/images/sectionCatalog/image 29.png",
       "category": "HP/COMPAQ PCS",
       "price": 3578,
       "priceFilter": "$3,000.00 And Above",
       "amount": 1,
       "totalPrice": 3578,
-      "rating": 4
+      "rating": 2,
+      "id": 11
     },
     {
-      "id": 12,
       "name": "HP Z2 Mini G9",
-      "image": "/images/sectionCustom/image 29.jpg",
+      "image": "/images/sectionLaptops/image 29.png",
       "category": "HP/COMPAQ PCS",
-      "price": 449,
-      "priceFilter": "$0.00 - $1,000.00",
+      "price": 3578,
+      "priceFilter": "$3,000.00 And Above",
       "amount": 1,
-      "totalPrice": 449,
-      "rating": 4
+      "totalPrice": 3578,
+      "rating": 2,
+      "id": 12
     },
     {
       "id": 13,
@@ -223,7 +212,7 @@
     {
       "id": 21,
       "name": "Web World",
-      "image": "/images/sectionCatalog/image 29 (1).png",
+      "image": "/images/sectionLaptops/image 29.png",
       "category": "CUSTOM PCS",
       "price": 767,
       "priceFilter": "$0.00 - $1,000.00",
@@ -544,6 +533,111 @@
       "text": "adfafasdfasfda",
       "rating": 3,
       "id": 32
+    },
+    {
+      "name": "asdfasfdafaf",
+      "nameFor": "Dell OptiPlex 5090 Tower",
+      "text": "adfasf",
+      "rating": 5,
+      "id": 33
+    },
+    {
+      "name": "afd",
+      "nameFor": "Acer Aspire TC-1760-UA92",
+      "text": "adf",
+      "rating": 1,
+      "id": 34
+    },
+    {
+      "name": "f",
+      "nameFor": "Acer Aspire TC-1760-UA92",
+      "text": "f",
+      "rating": 5,
+      "id": 35
+    },
+    {
+      "name": "afa",
+      "nameFor": "Acer Aspire TC-1760-UA92",
+      "text": "afdaf",
+      "rating": 2,
+      "id": 36
+    },
+    {
+      "name": "asdf",
+      "nameFor": "Dell XPS Desktop (8960)",
+      "text": "asfd",
+      "rating": 1,
+      "id": 37
+    },
+    {
+      "name": "adfasdfafd",
+      "nameFor": "Dell XPS Desktop (8960)",
+      "text": "asdfafafd",
+      "rating": 3,
+      "id": 38
+    },
+    {
+      "name": "bb",
+      "nameFor": "Alienware Aurora R16",
+      "text": "asDads",
+      "rating": 1,
+      "id": 39
+    },
+    {
+      "name": "asdfa",
+      "nameFor": "Lenovo IdeaCentre AIO 3i",
+      "text": "asasd",
+      "rating": 3,
+      "id": 40
+    },
+    {
+      "name": "ff",
+      "nameFor": "Lenovo IdeaCentre AIO 3i",
+      "text": "afa",
+      "rating": 1,
+      "id": 41
+    },
+    {
+      "name": "adfasf",
+      "nameFor": "Lenovo IdeaCentre AIO 3i",
+      "text": "adf",
+      "rating": 5,
+      "id": 42
+    },
+    {
+      "name": "f",
+      "nameFor": "Falcon Northwest Talon (2024, Threadripper Pro)",
+      "text": "af",
+      "rating": 1,
+      "id": 43
+    },
+    {
+      "name": "adf",
+      "nameFor": "Falcon Northwest Talon (2024, Threadripper Pro)",
+      "text": "adf",
+      "rating": 3,
+      "id": 44
+    },
+    {
+      "name": "af",
+      "nameFor": "Alienware Aurora R16",
+      "text": "adfs",
+      "rating": 5,
+      "id": 45
+    },
+    {
+      "name": "dasfa",
+      "nameFor": "Acer Aspire TC-1780-UA92",
+      "text": "adsf",
+      "rating": 4,
+      "id": 46
+    },
+    {
+      "name": "bob",
+      "nameFor": "Apple Mac mini (2023, M2 Pro)",
+      "text": "adfasfasfdafdafa",
+      "rating": 3,
+      "id": 47
     }
   ]
 }

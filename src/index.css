@@ -166,7 +166,7 @@ ul {
 .products__item-mark {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 7px;
 }
 .mark__starsHover{
   cursor:pointer;
@@ -1003,4 +1003,9 @@ ul {
 }
 .leftBlockComments__topline-btnComm{
   max-width: 135px;
+}
+.main__leftBlock-rating{
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }

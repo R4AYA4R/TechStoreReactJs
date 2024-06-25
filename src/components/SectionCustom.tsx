@@ -10,7 +10,7 @@ const SectionCustom = ()=>{
     const {data,error} = useQuery({
         queryKey:['catalogProducts'],
         queryFn:async () => {
-            const response = await axios.get<IProduct[]>('http://localhost:5000/catalogProducts', {
+            const response = await axios.get<IProduct[]>('http://localhost:5000/catalogProducts?category=CUSTOM PCS', {
                 params: {
                     _limit: 5,
                 }
