@@ -14,6 +14,8 @@ const ProductItem = ({ product }: IProductProps) => {
 
     const [commentsRatingMain, setCommentsRatingMain] = useState(0);
 
+    const [amountReviews,setAmountReviews] = useState<number | undefined>(0);
+
     const { data: dataComments, refetch: refetchComments } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
@@ -31,6 +33,8 @@ const ProductItem = ({ product }: IProductProps) => {
         const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === product.name); // массив данных комментариев фильтруем для каджого товара по его имени
 
         const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
+
+        setAmountReviews(dataCommentsForName?.length);
 
         // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
         if (commentsRating && dataCommentsForName?.length) {
@@ -72,7 +76,7 @@ const ProductItem = ({ product }: IProductProps) => {
                             <img src={commentsRatingMain >= 5 ? "/images/sectionCustom/Star 6.png" : "/images/sectionCustom/Star 10.png"} alt="" className="mark__stars5-img mark__stars5-imgComments" />
                         </div>
                     </div>
-                    <p className="mark__text">Reviews (4)</p>
+                    <p className="mark__text">Reviews ({amountReviews})</p>
                 </div>
                 <h2 className="products__item-title">{product.name}</h2>
                 <p className="products__item-price">${product.price}</p>
