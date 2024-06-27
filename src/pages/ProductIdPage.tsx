@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,6 +33,7 @@ const ProductIdPage = () => {
     const [commentsRatingMain, setCommentsRatingMain] = useState(0);
 
 
+
     const { data, refetch } = useQuery({
         queryKey: ['productPageId'],
         queryFn: async () => {
@@ -45,26 +46,26 @@ const ProductIdPage = () => {
 
     const [priceProduct, setPriceProduct] = useState(data?.data.price);
 
-    // const { mutate: mutateRating } = useMutation({
-    //     mutationKey: ['update rating'],
-    //     mutationFn: async (rating: number) => {
-    //         await axios.put<IProduct>(`http://localhost:5000/catalogProducts/${params.id}`, {
-    //             name:data?.data.name,
-    //             image:data?.data.image,
-    //             category:data?.data.category,
-    //             price:data?.data.price,
-    //             priceFilter:data?.data.priceFilter,
-    //             amount:data?.data.amount,
-    //             totalPrice:data?.data.totalPrice,
-    //             rating: rating
-    //         } as IProduct);
+    const { mutate: mutateRating } = useMutation({
+        mutationKey: ['update ratingProduct'],
+        mutationFn: async (product: IProduct) => {
+            await axios.put<any, any, IProduct>(`http://localhost:5000/catalogProducts/${params.id}`, product);
 
-    //     },
-    //     onSuccess() {
-    //         refetch(); // делаем запрос на сервер еще раз,чтобы обновить данные товара
-    //     }
-    // })
+        },
+        onSuccess() {
+            refetch();
+        }
+    })
 
+    const { data: dataComments, refetch: refetchComments } = useQuery({
+        queryKey: ['comments'],
+        queryFn: async () => {
+            // делаем запрос на сервер по конкретному id,который достали из url
+            const response = await axios.get<IComment[]>('http://localhost:5000/comments');
+
+            return response;
+        }
+    })
 
     // функция для post запроса на сервер с помощью useMutation(react query),создаем комментарий на сервере,берем mutate у useMutation,чтобы потом вызвать эту функцию запроса на сервер в нужный момент
     const { mutate } = useMutation({
@@ -76,16 +77,6 @@ const ProductIdPage = () => {
         // при успешной мутации переобновляем массив комментариев
         onSuccess() {
             refetchComments();
-        }
-    })
-
-    const { data: dataComments, refetch: refetchComments } = useQuery({
-        queryKey: ['comments'],
-        queryFn: async () => {
-            // делаем запрос на сервер по конкретному id,который достали из url
-            const response = await axios.get<IComment[]>('http://localhost:5000/comments');
-
-            return response;
         }
     })
 
@@ -120,6 +111,36 @@ const ProductIdPage = () => {
         }
     }
 
+    // при изменении массива комментариев и массива data?.data(самого товара) переобновляем массив комментарие,фильтруем его и помещаем в состояние(чтобы комментарии показывались для каждого товара отдельные)
+    useEffect(() => {
+        refetch();
+        refetchComments();
+
+        const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name); // массив данных комментариев фильтруем для каджого товара по его имени
+
+        setCommentsForName(dataCommentsForName);
+
+        const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
+
+        // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
+        if (dataCommentsForName?.length && commentsRating) {
+            const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
+
+            setCommentsRatingMain(commentsRatingMiddle);
+
+        } else {
+            setCommentsRatingMain(0); // если комментариев нет у этого товара,то меняем состояние рейтинга на 0
+
+        }
+
+        const commentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name).filter(comm => comm.name === inputFormName); // у каждого комментария если nameFor равно name у товара этой страницы,то оставить в массиве commentsForName,и у нового отфильтрованного массива проверяем some (возвращает true или false при срабатывании условия) ,если name у комментария нового массива равно inputFormName,то оставить в массиве (то есть если пользователь ввел такое же имя,как и у существующего комментария иммено у этого товара,чтобы потом показывалось сообщение,что такое имя уже есть)
+
+        setCommForName(commentsForName);
+
+
+    }, [dataComments?.data, data?.data])
+
+
     const formHandler = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
@@ -134,6 +155,31 @@ const ProductIdPage = () => {
         } else {
 
             mutate({ name: inputFormName, nameFor: data?.data.name, text: inputFormArea, rating: activeStars, } as IComment); // вызываем функцию post запроса на сервер,создавая комментарий,разворачивая в объект нужные поля для комментария и давая этому объекту тип as IComment(вручную не указываем id,чтобы он автоматически создавался на сервере)
+
+            // refetchComments()
+
+            // делаем запрос на сервер с помощью useMutation и изменяем поле rating на commentsRatingMain,остальные поля объекта data даем значения такие,какие и были,кроме id,его не указываем, и ставим тип объекта as IProduct
+            // mutateRating({ amount: data?.data.amount, category: data?.data.category, image: data?.data.image, name: data?.data.name, price: data?.data.price, priceFilter: data?.data.priceFilter, totalPrice: data?.data.totalPrice, rating: commentsRatingMain } as IProduct);
+
+
+            const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name); // массив данных комментариев фильтруем для каджого товара по его имени
+
+            const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
+
+            // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
+            if (dataCommentsForName?.length && commentsRating) {
+                const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
+
+                setCommentsRatingMain(commentsRatingMiddle);
+                
+                mutateRating({ amount: data?.data.amount, category: data?.data.category, image: data?.data.image, name: data?.data.name, price: data?.data.price, priceFilter: data?.data.priceFilter, totalPrice: data?.data.totalPrice, rating: commentsRatingMiddle } as IProduct);
+
+            } else {
+                mutateRating({ amount: data?.data.amount, category: data?.data.category, image: data?.data.image, name: data?.data.name, price: data?.data.price, priceFilter: data?.data.priceFilter, totalPrice: data?.data.totalPrice, rating: 0 } as IProduct);
+
+            }
+
+
             setActiveForm(false);
             setFormErrorMessage(false);
             setInputFormArea('');
@@ -144,45 +190,6 @@ const ProductIdPage = () => {
 
     }
 
-
-    useEffect(() => {
-        refetchComments(); // делаем запрос на сервер еще раз,чтобы обновить комментарии
-
-        refetch(); // делаем запрос на сервер еще раз,чтобы обновить данные товара
-
-        console.log(commentsRatingMain)
-    }, [data?.data])
-
-    // при изменении массива комментариев и массива data?.data(самого товара) переобновляем массив комментарие,фильтруем его и помещаем в состояние(чтобы комментарии показывались для каждого товара отдельные)
-    useEffect(() => {
-        refetchComments();
-
-        const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name); // массив данных комментариев фильтруем для каджого товара по его имени
-
-        setCommentsForName(dataCommentsForName);
-
-        const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
-
-        // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
-        if (commentsRating && dataCommentsForName?.length) {
-            const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
-
-            setCommentsRatingMain(commentsRatingMiddle);
-
-            // mutateRating(commentsRatingMiddle); // делаем запрос на сервер и изменяем поле rating у этого товара
-        }else{
-            setCommentsRatingMain(0); // если комментариев нет у этого товара,то меняем состояние рейтинга на 1
-        }
-
-        console.log(dataCommentsForName)
-
-
-        const commentsForName = dataComments?.data.filter(c => c.nameFor === data?.data.name).filter(comm => comm.name === inputFormName); // у каждого комментария если nameFor равно name у товара этой страницы,то оставить в массиве commentsForName,и у нового отфильтрованного массива проверяем some (возвращает true или false при срабатывании условия) ,если name у комментария нового массива равно inputFormName,то оставить в массиве (то есть если пользователь ввел такое же имя,как и у существующего комментария иммено у этого товара,чтобы потом показывалось сообщение,что такое имя уже есть)
-
-        setCommForName(commentsForName);
-
-
-    }, [dataComments?.data, data?.data])
 
     // при изменении inputValue и data?.data(в данном случае данные товара,полученные с сервера,чтобы при запуске страницы сайта уже было значение в priceProduct,без этого стартовое значение priceProduct не становится на data?.data.price) изменяем состояние priceProduct
     useEffect(() => {

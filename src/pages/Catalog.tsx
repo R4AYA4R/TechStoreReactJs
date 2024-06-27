@@ -62,6 +62,10 @@ const Catalog = () => {
 
                 return response;
 
+            } else {
+                const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}`);
+
+                return response;
             }
 
         }
@@ -119,6 +123,62 @@ const Catalog = () => {
             } else if (categoryFilter !== '') {
 
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}`, {
+                    params: {
+                        _limit: limit,
+                        _page: page
+                    }
+                });
+
+                const totalCount = data?.headers['x-total-count']; // записываем общее количество объектов(в данном случае объектов для товаров),полученных от сервера в переменную
+
+                setTotalPages(Math.ceil(totalCount / limit)); //с помощью Math.ceil округляем получившееся значение в большую сторону,например,если элементов 105,а лимит 10,то округляем получившееся деление до 11,чтобы получить 11 страниц и вывести потом оставшиеся элементы на эту (11-ую в данном случае) страницу
+
+                return response;
+
+            } else if (sortByFilter !== ''){
+                const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&_sort=rating&_order=desc`, {
+                    params: {
+                        _limit: limit,
+                        _page: page
+                    }
+                });
+
+                const totalCount = data?.headers['x-total-count']; // записываем общее количество объектов(в данном случае объектов для товаров),полученных от сервера в переменную
+
+                setTotalPages(Math.ceil(totalCount / limit)); //с помощью Math.ceil округляем получившееся значение в большую сторону,например,если элементов 105,а лимит 10,то округляем получившееся деление до 11,чтобы получить 11 страниц и вывести потом оставшиеся элементы на эту (11-ую в данном случае) страницу
+
+                return response;
+
+            } else if (categoryFilter !== '' && priceFilter!== '' && sortByFilter !== ''){
+                const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}&priceFilter=${priceFilter}&_sort=rating&_order=desc`, {
+                    params: {
+                        _limit: limit,
+                        _page: page
+                    }
+                });
+
+                const totalCount = data?.headers['x-total-count']; // записываем общее количество объектов(в данном случае объектов для товаров),полученных от сервера в переменную
+
+                setTotalPages(Math.ceil(totalCount / limit)); //с помощью Math.ceil округляем получившееся значение в большую сторону,например,если элементов 105,а лимит 10,то округляем получившееся деление до 11,чтобы получить 11 страниц и вывести потом оставшиеся элементы на эту (11-ую в данном случае) страницу
+
+                return response;
+                
+            } else if (categoryFilter !== '' && sortByFilter !== ''){
+                const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}&_sort=rating&_order=desc`, {
+                    params: {
+                        _limit: limit,
+                        _page: page
+                    }
+                });
+
+                const totalCount = data?.headers['x-total-count']; // записываем общее количество объектов(в данном случае объектов для товаров),полученных от сервера в переменную
+
+                setTotalPages(Math.ceil(totalCount / limit)); //с помощью Math.ceil округляем получившееся значение в большую сторону,например,если элементов 105,а лимит 10,то округляем получившееся деление до 11,чтобы получить 11 страниц и вывести потом оставшиеся элементы на эту (11-ую в данном случае) страницу
+
+                return response;
+
+            } else if (priceFilter !== '' && sortByFilter !== ''){
+                const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&priceFilter=${priceFilter}&_sort=rating&_order=desc`, {
                     params: {
                         _limit: limit,
                         _page: page
@@ -215,6 +275,8 @@ const Catalog = () => {
 
         setPriceFilter('');
 
+        setSortByFilter('');
+
         refetchWithoutLimitAndChecks();
 
     }, [searchValue])
@@ -222,7 +284,7 @@ const Catalog = () => {
     // при изменении categoryFilter,priceFilter(при нажатии на категорию или фильтр цены) изменяем состояние page(текущей страницы) на 1,чтобы при этих фильтрах показывалось с первой страницы и не баговалось
     useEffect(() => {
         setPage(1);
-    }, [categoryFilter, priceFilter])
+    }, [categoryFilter, priceFilter,sortByFilter])
 
     // делаем запрос через useQuery еще раз,при изменении page(состояния текущей страницы),data?.data (массив товаров),изменении инпута поиска и category(категории товаров)
     useEffect(() => {
@@ -231,7 +293,7 @@ const Catalog = () => {
 
         refetchWithoutLimit();
 
-    }, [data?.data, page, searchValue, priceFilter, categoryFilter])
+    }, [data?.data, page, searchValue, priceFilter, categoryFilter,sortByFilter])
 
     let pagesArray = getPagesArray(totalPages, page);
 
@@ -319,7 +381,7 @@ const Catalog = () => {
                                     <img src="/images/sectionCatalog/Vector 11.png" alt="" className={sortBySelect ? "filterBar__select-img filterBar__select-img--active" : "filterBar__select-img"} />
                                     <p className="filterBar__select-title">Sort By</p>
                                     <div className={sortBySelect ? 'filterBar__select-optionsBlock filterBar__select-optionsBlock--active' : 'filterBar__select-optionsBlock'}>
-                                        <p className="optionsBlock__text" onClick={() => setSortByFilter('Rating')}>Rating</p>
+                                        <p className="optionsBlock__text" onClick={() => setSortByFilter('SortBy: Rating')}>Rating</p>
                                     </div>
                                 </div>
                             </div>

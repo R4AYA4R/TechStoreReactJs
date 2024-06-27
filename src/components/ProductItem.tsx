@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IComment, IProduct } from "../types/types";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 interface IProductProps {
@@ -17,7 +17,7 @@ const ProductItem = ({ product }: IProductProps) => {
     const [amountReviews,setAmountReviews] = useState<number | undefined>(0);
 
     const { data: dataComments, refetch: refetchComments } = useQuery({
-        queryKey: ['comments'],
+        queryKey: ['commentsProduct'],
         queryFn: async () => {
             // делаем запрос на сервер по конкретному id,который достали из url
             const response = await axios.get<IComment[]>('http://localhost:5000/comments');
@@ -42,11 +42,11 @@ const ProductItem = ({ product }: IProductProps) => {
 
             setCommentsRatingMain(commentsRatingMiddle);
 
+
         } else {
             setCommentsRatingMain(0); // если комментариев нет у этого товара,то меняем состояние рейтинга на 0
-        }
 
-        console.log(dataCommentsForName)
+        }
 
 
     }, [dataComments?.data])
