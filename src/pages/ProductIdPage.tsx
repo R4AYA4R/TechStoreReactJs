@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { IComment, IProduct } from "../types/types";
 import SectionOutplay from "../components/SectionOutplay";
 import SectionFeatures from "../components/SectionFeatures";
+import { apiBasket } from "../store/apiBasket";
 
 const ProductIdPage = () => {
 
@@ -32,6 +33,10 @@ const ProductIdPage = () => {
 
     const [commentsRatingMain, setCommentsRatingMain] = useState(0);
 
+    const [addProductBasket] = apiBasket.useAddProductBasketMutation(); // берем функцию запроса на сервер из нашего api(apiBasket) с помощью нашего хука useAddProductBasketMutation,вторым элементом,который можно взять у этого хука,это все состояния,которые rtk query автоматически создает,а также data(данные запроса)
+
+    const { data: dataBasket } = apiBasket.useGetAllProductsBasketQuery(null); // делаем запрос на сервер для получения всех объектов в корзине,чтобы сделать проверку на существующий товар в корзине,указываем в параметре useGetAllProductsBasketQuery null,так как используем typescript
+
 
 
     const { data, refetch } = useQuery({
@@ -43,6 +48,8 @@ const ProductIdPage = () => {
             return response;
         }
     })
+
+    const isExistsBasket = dataBasket?.some(p => p.name === data?.data.name);  // делаем проверку методом some и результат записываем в переменную isExistsBasket,если в dataBasket(в массиве объектов корзины) есть элемент name которого равен data?.data name(то есть name этого товара)
 
     const [priceProduct, setPriceProduct] = useState(data?.data.price);
 
@@ -171,7 +178,7 @@ const ProductIdPage = () => {
                 const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
 
                 setCommentsRatingMain(commentsRatingMiddle);
-                
+
                 mutateRating({ amount: data?.data.amount, category: data?.data.category, image: data?.data.image, name: data?.data.name, price: data?.data.price, priceFilter: data?.data.priceFilter, totalPrice: data?.data.totalPrice, rating: commentsRatingMiddle } as IProduct);
 
             } else {
@@ -199,6 +206,11 @@ const ProductIdPage = () => {
         }
 
     }, [inputValue, data?.data])
+
+    const addToCart = async () => {
+        await addProductBasket({ name: data?.data.name, category: data?.data.category, image: data?.data.image, price: data?.data.price, rating: data?.data.rating, priceFilter: data?.data.priceFilter, amount: inputValue, totalPrice: priceProduct } as IProduct); // передаем в addProductBasket объект типа IProduct только таким образом,разворачивая в объект все необходимые поля(то есть наш product,в котором полe name,делаем поле name со значением,как и у этого name и остальные поля также,кроме поля amount и totalPrice,их мы изменяем и указываем как значения inputValue(инпут с количеством) и priceProduct(состояние цены,которое изменяется при изменении inputValue)),указываем тип этого объекта, созданный нами тип IProduct,при создании на сервере не указываем конкретное значение id,чтобы он сам автоматически генерировался на сервере и потом можно было удалить этот объект
+
+    }
 
     return (
         <>
@@ -235,24 +247,32 @@ const ProductIdPage = () => {
                                     </div>
                                     <h1 className="main__leftBlock-title">{data?.data.name}</h1>
                                     <p className="main__leftBlock-desc">MSI MPG Trident 3 10SC-005AU Intel i7 10700F, 2060 SUPER, 16GB RAM, 512GB SSD, 2TB HDD, Windows 10 Home, Gaming Keyboard and Mouse 3 Years Warranty Gaming Desktop</p>
-                                    <div className="main__leftBlock-cartBlock">
-                                        <div className="leftBlock__cartBlock-priceAndInput">
-                                            <p className="leftBlock__cartBlock-price">${priceProduct}</p>
-                                            <div className="leftBlock__cartBlock-inputBlock">
-                                                <button className="cartBlock__inputBlock-btnUp" onClick={handlerBtnPlus}>
-                                                    <img src="/images/sectionProductPageTop/Frame 98.png" alt="" className="cartBlock__inputBlock-imgUp" />
-                                                </button>
-                                                <button className="cartBlock__inputBlock-btnDown" onClick={handlerBtnMinus}>
-                                                    <img src="/images/sectionProductPageTop/Frame 97.png" alt="" className="cartBlock__inputBlock-imgDown" />
-                                                </button>
 
-                                                {/* изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число */}
-                                                <input type="number" className="cartBlock__inputBlock-input" max="100" min="1" value={inputValue} onChange={changeInputValue} />
+                                    {isExistsBasket ?
+                                        <h3>Already in Cart</h3>
+                                        :
+                                        <div className="main__leftBlock-cartBlock">
+                                            <div className="leftBlock__cartBlock-priceAndInput">
+                                                <p className="leftBlock__cartBlock-price">${priceProduct}</p>
+                                                <div className="leftBlock__cartBlock-inputBlock">
+                                                    <button className="cartBlock__inputBlock-btnUp" onClick={handlerBtnPlus}>
+                                                        <img src="/images/sectionProductPageTop/Frame 98.png" alt="" className="cartBlock__inputBlock-imgUp" />
+                                                    </button>
+                                                    <button className="cartBlock__inputBlock-btnDown" onClick={handlerBtnMinus}>
+                                                        <img src="/images/sectionProductPageTop/Frame 97.png" alt="" className="cartBlock__inputBlock-imgDown" />
+                                                    </button>
 
+                                                    {/* изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число */}
+                                                    <input type="number" className="cartBlock__inputBlock-input" max="100" min="1" value={inputValue} onChange={changeInputValue} />
+
+                                                </div>
                                             </div>
+                                            <button className="leftBlock__cartBlock-cartBtn" onClick={addToCart}>Add to Cart</button>
+
                                         </div>
-                                        <button className="leftBlock__cartBlock-cartBtn">Add to Cart</button>
-                                    </div>
+                                    }
+
+
                                 </div>
                             }
 

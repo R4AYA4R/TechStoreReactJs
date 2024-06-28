@@ -269,15 +269,15 @@
       "rating": 4
     },
     {
-      "id": 27,
-      "name": "SilverBullet",
-      "image": "/images/sectionCustom/image 29.jpg",
+      "amount": 1,
       "category": "MSI ALL-IN-ONE PCS",
+      "image": "/images/sectionCustom/image 29.jpg",
+      "name": "SilverBullet",
       "price": 1298,
       "priceFilter": "$1,000.00 - $2,000.00",
-      "amount": 1,
       "totalPrice": 1298,
-      "rating": 4
+      "rating": 0,
+      "id": 27
     },
     {
       "id": 28,
@@ -637,6 +637,77 @@
       "text": "adsf",
       "rating": 5,
       "id": 48
+    },
+    {
+      "name": "afd",
+      "nameFor": "Hacker Heaven II",
+      "text": "asdf",
+      "rating": 1,
+      "id": 49
+    },
+    {
+      "name": "adfsaf",
+      "nameFor": "SilverBullet",
+      "text": "asdf",
+      "rating": 4,
+      "id": 50
+    }
+  ],
+  "productsBasket": [
+    {
+      "name": "Dell XPS Desktop (8960)",
+      "category": "MSI ALL-IN-ONE PCS",
+      "image": "/images/sectionCatalog/image 29.png",
+      "price": 799,
+      "rating": 2.5,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 1,
+      "totalPrice": 799,
+      "id": 1
+    },
+    {
+      "name": "InfinityTech",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionLaptops/image 29.png",
+      "price": 1699,
+      "rating": 4,
+      "priceFilter": "$1,000.00 - $2,000.00",
+      "amount": 4,
+      "totalPrice": 6796,
+      "id": 2
+    },
+    {
+      "name": "NZXT Player: One",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionLaptops/image 29.png",
+      "price": 399,
+      "rating": 0,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 2,
+      "totalPrice": 798,
+      "id": 3
+    },
+    {
+      "name": "Acer Aspire TC-1780-UA92",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionCatalog/image 29 (1).png",
+      "price": 539,
+      "rating": 3.3333333333333335,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 14,
+      "totalPrice": 7546,
+      "id": 4
+    },
+    {
+      "name": "Alienware Aurora R16",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionCustom/image 29.jpg",
+      "price": 339,
+      "rating": 1,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 1,
+      "totalPrice": 339,
+      "id": 5
     }
   ]
 }

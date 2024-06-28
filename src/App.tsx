@@ -6,6 +6,7 @@ import Catalog from "./pages/Catalog";
 import SectionSupport from "./components/SectionSupport";
 import ProductIdPage from "./pages/ProductIdPage";
 import ScrollToTop from "./utils/ScrollToTop";
+import Cart from "./pages/Cart";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/catalog" element={<Catalog/>}/>
+            <Route path="/cart" element={<Cart/>}/>
             <Route path="/catalog/:id" element={<ProductIdPage/>}/> {/* указываем после /catalog/ :id,для динамического id,чтобы потом открывалась отдельная страница товара по конкретному id  */}
           </Routes>
         </main>
