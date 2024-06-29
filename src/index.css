@@ -1047,6 +1047,11 @@ ul {
   border-radius: 50px;
   cursor:pointer;
   margin-top: 25px;
+  opacity: 1;
+  transition:opacity .5s ease;
+}
+.sectionCart__table-btn:hover{
+  opacity: 0.5;
 }
 .table__main-item{
   display: grid;
@@ -1071,3 +1076,19 @@ ul {
   background-color: #fff;
   cursor:pointer;
 }
+ .sectionCart__table-bottom{
+  display: grid;
+  grid-template-columns:3fr 1fr;
+  align-items: center;
+ }
+ .table__bottom-btns{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+ }
+ .table__bottom-text{
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+ }

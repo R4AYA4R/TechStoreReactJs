@@ -1,5 +1,9 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { IProduct } from "../types/types";
+import { apiBasket } from "../store/apiBasket";
+import { BasketContext } from "../App";
+import { setTimeout } from "timers/promises";
+
 
 interface IProductBasket{
     product:IProduct
@@ -10,6 +14,13 @@ const ProductItemBasket = ({product}:IProductBasket) => {
     const [inputValue, setInputValue] = useState<number>(product.amount);
 
     const [priceProduct, setPriceProduct] = useState(product.totalPrice);
+
+    const [deleteProductBasket] = apiBasket.useDeleteProductBasketMutation();
+
+    const [updateProductBasket] = apiBasket.useUpdateProductBasketMutation();
+
+    // const {updateBasket} = useContext(BasketContext)
+
 
     const changeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
         // изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число
@@ -47,6 +58,16 @@ const ProductItemBasket = ({product}:IProductBasket) => {
 
     }, [inputValue])
 
+    useEffect(()=>{ 
+        
+        // updateBasket(inputValue,priceProduct,product);
+        // console.log(priceProduct)
+
+        updateProductBasket({...product,amount:inputValue,totalPrice:priceProduct}); // обновляем данные товара корзины при изменении priceProduct
+       
+    },[priceProduct])
+
+
     return (
         <div className="table__main-item">
             <img src={product.image} alt="" className="main__item-img" />
@@ -65,7 +86,7 @@ const ProductItemBasket = ({product}:IProductBasket) => {
             </div>
             <p className="main__item-price">${priceProduct}</p>
             <div className="main__item-btnBlock">
-                <button className="main__item-btn">
+                <button className="main__item-btn" onClick={()=>deleteProductBasket(product)}>
                     <img src="/images/sectionCart/Group 108.png" alt="" className="main__item-btnImg" />
                 </button>
             </div>

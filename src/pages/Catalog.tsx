@@ -149,7 +149,7 @@ const Catalog = () => {
 
                 return response;
 
-            } else if (categoryFilter !== '' && priceFilter!== '' && sortByFilter !== ''){
+            } else if (categoryFilter !== '' && priceFilter !== '' && sortByFilter !== ''){
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}&priceFilter=${priceFilter}&_sort=rating&_order=desc`, {
                     params: {
                         _limit: limit,
