@@ -29,7 +29,7 @@
       "name": "Acer Aspire TC-1780-UA92",
       "price": 539,
       "priceFilter": "$0.00 - $1,000.00",
-      "totalPrice": 339,
+      "totalPrice": 539,
       "rating": 3.3333333333333335,
       "id": 4
     },
@@ -73,8 +73,8 @@
       "name": "Lenovo IdeaCentre AIO 5i",
       "price": 1855,
       "priceFilter": "$1,000.00 - $2,000.00",
-      "totalPrice": 1355,
-      "rating": 3,
+      "totalPrice": 1855,
+      "rating": 0,
       "id": 8
     },
     {
@@ -85,7 +85,7 @@
       "price": 1499,
       "priceFilter": "$1,000.00 - $2,000.00",
       "totalPrice": 1499,
-      "rating": 3,
+      "rating": 0,
       "id": 9
     },
     {
@@ -173,7 +173,7 @@
       "price": 4099,
       "priceFilter": "$3,000.00 And Above",
       "totalPrice": 4099,
-      "rating": 3,
+      "rating": 0,
       "id": 17
     },
     {
@@ -208,10 +208,6 @@
       "amount": 1,
       "totalPrice": 2398,
       "rating": 4
-    },
-    {
-      "rating": 1,
-      "id": 21
     },
     {
       "amount": 1,
@@ -304,361 +300,56 @@
   ],
   "comments": [
     {
-      "name": "asf",
-      "nameFor": "Byte Clubhouse",
-      "text": "asfd",
+      "name": "adf",
+      "nameFor": "Hacker Heaven II",
+      "text": "adsf",
       "rating": 1,
       "id": 1
     },
     {
-      "name": "af",
+      "name": "a",
       "nameFor": "Apple Mac mini (2023, M2 Pro)",
-      "text": "af",
+      "text": "a",
       "rating": 5,
       "id": 2
     },
     {
-      "name": "affa",
-      "nameFor": "Apple Mac mini (2023, M2 Pro)",
-      "text": "af",
-      "rating": 1,
+      "name": "adf",
+      "nameFor": "NZXT Player: One",
+      "text": "adf",
+      "rating": 3,
       "id": 3
     },
     {
-      "name": "afd",
-      "nameFor": "Apple Mac mini (2023, M2 Pro)",
-      "text": "a",
-      "rating": 3,
+      "name": "adf",
+      "nameFor": "Lenovo IdeaCentre AIO 5i",
+      "text": "af",
+      "rating": 5,
       "id": 4
-    },
-    {
-      "name": "aasdf",
-      "nameFor": "Apple Mac mini (2023, M2 Pro)",
-      "text": "adfs",
-      "rating": 4,
-      "id": 5
-    },
-    {
-      "name": "adsf",
-      "nameFor": "Hacker Heaven II",
-      "text": "asdf",
-      "rating": 1,
-      "id": 6
-    },
-    {
-      "name": "a",
-      "nameFor": "Hacker Heaven II",
-      "text": "a",
-      "rating": 3,
-      "id": 7
-    },
-    {
-      "name": "af",
-      "nameFor": "Hacker Heaven II",
-      "text": "ad",
-      "rating": 5,
-      "id": 8
-    },
-    {
-      "name": "af",
-      "nameFor": "Web World",
-      "text": "adf",
-      "rating": 2,
-      "id": 9
-    },
-    {
-      "name": "a",
-      "nameFor": "Web World",
-      "text": "a",
-      "rating": 5,
-      "id": 10
-    },
-    {
-      "name": "af",
-      "text": "asdf",
-      "rating": 1,
-      "id": 11
-    },
-    {
-      "name": "asdf",
-      "nameFor": "Wi-Fi Wonderland",
-      "text": "asfd",
-      "rating": 1,
-      "id": 12
-    },
-    {
-      "name": "adf",
-      "nameFor": "Wi-Fi Wonderland",
-      "text": "afd",
-      "rating": 1,
-      "id": 13
-    },
-    {
-      "name": "asfd",
-      "nameFor": "Wi-Fi Wonderland",
-      "text": "asf",
-      "rating": 5,
-      "id": 14
-    },
-    {
-      "name": "adf",
-      "nameFor": "Dell XPS Desktop (8960)",
-      "text": "asfd",
-      "rating": 1,
-      "id": 15
-    },
-    {
-      "name": "adfs",
-      "nameFor": "Lenovo IdeaCentre AIO 5i",
-      "text": "adfs",
-      "rating": 3,
-      "id": 16
-    },
-    {
-      "name": "asdf",
-      "nameFor": "Lenovo IdeaCentre AIO 5i",
-      "text": "a",
-      "rating": 1,
-      "id": 17
-    },
-    {
-      "name": "adf",
-      "nameFor": "MSI Pro DP21",
-      "text": "adfs",
-      "rating": 2,
-      "id": 18
-    },
-    {
-      "name": "af",
-      "nameFor": "MSI Pro DP21",
-      "text": "afsd",
-      "rating": 5,
-      "id": 19
-    },
-    {
-      "name": "adf",
-      "nameFor": "AOL Force Five",
-      "text": "adf",
-      "rating": 1,
-      "id": 20
-    },
-    {
-      "name": "f",
-      "nameFor": "AOL Force Five",
-      "text": "f",
-      "rating": 5,
-      "id": 21
-    },
-    {
-      "name": "asfd",
-      "nameFor": "AOL Force Five",
-      "text": "adf",
-      "rating": 3,
-      "id": 22
-    },
-    {
-      "name": "adfs",
-      "nameFor": "Dell OptiPlex 5090 Tower",
-      "text": "adf",
-      "rating": 2,
-      "id": 23
-    },
-    {
-      "name": "adf",
-      "nameFor": "Dell OptiPlex 5090 Tower",
-      "text": "adfs",
-      "rating": 5,
-      "id": 24
-    },
-    {
-      "name": "a",
-      "nameFor": "Acer Aspire TC-1780-UA92",
-      "text": "a",
-      "rating": 4,
-      "id": 25
-    },
-    {
-      "name": "aafd",
-      "nameFor": "Acer Aspire TC-1780-UA92",
-      "text": "a",
-      "rating": 1,
-      "id": 26
-    },
-    {
-      "name": "adfs",
-      "nameFor": "Acer Aspire TC-1780-UA92",
-      "text": "asdf",
-      "rating": 5,
-      "id": 27
-    },
-    {
-      "name": "adf",
-      "nameFor": "Acer Aspire TC-1780-UA92",
-      "text": "afd",
-      "rating": 1,
-      "id": 28
-    },
-    {
-      "name": "asd",
-      "nameFor": "Alienware Aurora R16",
-      "text": "asdf",
-      "rating": 1,
-      "id": 29
-    },
-    {
-      "name": "afds",
-      "nameFor": "Alienware Aurora R16",
-      "text": "asdf",
-      "rating": 5,
-      "id": 30
-    },
-    {
-      "name": "af",
-      "nameFor": "NZXT Player: One",
-      "text": "asdf",
-      "rating": 3,
-      "id": 31
-    },
-    {
-      "name": "a",
-      "nameFor": "Lenovo IdeaCentre AIO 3i",
-      "text": "a",
-      "rating": 4,
-      "id": 32
-    },
-    {
-      "name": "asfd",
-      "nameFor": "Lenovo IdeaCentre AIO 3i",
-      "text": "asdf",
-      "rating": 1,
-      "id": 33
-    },
-    {
-      "name": "adfs",
-      "nameFor": "Falcon Northwest Talon",
-      "text": "asfd",
-      "rating": 3,
-      "id": 34
-    },
-    {
-      "name": "afds",
-      "nameFor": "Falcon Northwest Talon",
-      "text": "adf",
-      "rating": 5,
-      "id": 35
-    },
-    {
-      "name": "asdf",
-      "nameFor": "HP ProDesk 400 G7 MT",
-      "text": "asdf",
-      "rating": 3,
-      "id": 36
-    },
-    {
-      "name": "asdf",
-      "nameFor": "Glitch Galaxy",
-      "text": "asdf",
-      "rating": 1,
-      "id": 37
-    },
-    {
-      "name": "a",
-      "nameFor": "HP Z2 Mini G9",
-      "text": "a",
-      "rating": 1,
-      "id": 38
-    },
-    {
-      "name": "adsf",
-      "nameFor": "HP Z2 Mini G9",
-      "text": "asdf",
-      "rating": 5,
-      "id": 39
-    },
-    {
-      "name": "afd",
-      "nameFor": "HP Z2 Mini G9",
-      "text": "afd",
-      "rating": 1,
-      "id": 40
-    },
-    {
-      "name": "adf",
-      "nameFor": "HP Z2 Mini G9",
-      "text": "afd",
-      "rating": 1,
-      "id": 41
-    },
-    {
-      "name": "adfs",
-      "nameFor": "Server Station",
-      "text": "asdf",
-      "rating": 1,
-      "id": 42
-    },
-    {
-      "name": "adf",
-      "nameFor": "Server Station",
-      "text": "adf",
-      "rating": 5,
-      "id": 43
-    },
-    {
-      "name": "asdf",
-      "nameFor": "Server Station",
-      "text": "a",
-      "rating": 1,
-      "id": 44
-    },
-    {
-      "name": "adfadf",
-      "nameFor": "Dell XPS Desktop (8960)",
-      "text": "adf",
-      "rating": 4,
-      "id": 45
-    },
-    {
-      "name": "asdf",
-      "nameFor": "StarDrive",
-      "text": "asdf",
-      "rating": 5,
-      "id": 46
-    },
-    {
-      "name": "adsf",
-      "nameFor": "StarDrive",
-      "text": "asdf",
-      "rating": 5,
-      "id": 47
-    },
-    {
-      "name": "asdf",
-      "nameFor": "Dell XPS Desktop (8960)",
-      "text": "adsf",
-      "rating": 5,
-      "id": 48
-    },
-    {
-      "name": "afd",
-      "nameFor": "Hacker Heaven II",
-      "text": "asdf",
-      "rating": 1,
-      "id": 49
-    },
-    {
-      "name": "adfsaf",
-      "nameFor": "SilverBullet",
-      "text": "asdf",
-      "rating": 4,
-      "id": 50
-    },
-    {
-      "name": "adfafd",
-      "nameFor": "Digital Deluxe",
-      "text": "a",
-      "rating": 4,
-      "id": 51
     }
   ],
-  "productsBasket": []
+  "productsBasket": [
+    {
+      "name": "Acer Aspire TC-1780-UA92",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionCatalog/image 29 (1).png",
+      "price": 539,
+      "rating": 3.3333333333333335,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 4,
+      "totalPrice": 2156,
+      "id": 1
+    },
+    {
+      "name": "NZXT Player: One",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionLaptops/image 29.png",
+      "price": 399,
+      "rating": 0,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 5,
+      "totalPrice": 1995,
+      "id": 2
+    }
+  ]
 }

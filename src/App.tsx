@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import { createContext, useState } from "react";
 import { IProduct } from "./types/types";
 import { apiBasket } from "./store/apiBasket";
+import AboutUs from "./pages/AboutUs";
 
 
 export const BasketContext = createContext<any>(null); // createContext- функция,которая создает контекст для хука useContext,это сейчас не используем,так как реализовали другим образом
@@ -49,6 +50,7 @@ function App() {
               <Route path="/" element={<Home/>}/>
               <Route path="/catalog" element={<Catalog/>}/>
               <Route path="/cart" element={<Cart/>}/>
+              <Route path="/about" element={<AboutUs/>}/>
               <Route path="/catalog/:id" element={<ProductIdPage/>}/> {/* указываем после /catalog/ :id,для динамического id,чтобы потом открывалась отдельная страница товара по конкретному id  */}
             </Routes>
           </main>

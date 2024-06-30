@@ -53,17 +53,6 @@ const ProductIdPage = () => {
 
     const [priceProduct, setPriceProduct] = useState(data?.data.price);
 
-    const { mutate: mutateRating } = useMutation({
-        mutationKey: ['update ratingProduct'],
-        mutationFn: async (product: IProduct) => {
-            await axios.put<any, any, IProduct>(`http://localhost:5000/catalogProducts/${params.id}`, product);
-
-        },
-        onSuccess() {
-            refetch();
-        }
-    })
-
     const { data: dataComments, refetch: refetchComments } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
@@ -84,6 +73,17 @@ const ProductIdPage = () => {
         // при успешной мутации переобновляем массив комментариев
         onSuccess() {
             refetchComments();
+        }
+    })
+
+    const { mutate: mutateRating } = useMutation({
+        mutationKey: ['update ratingProduct'],
+        mutationFn: async (product: IProduct) => {
+            await axios.put<any, any, IProduct>(`http://localhost:5000/catalogProducts/${params.id}`, product);
+
+        },
+        onSuccess() {
+            refetch();
         }
     })
 
@@ -173,7 +173,8 @@ const ProductIdPage = () => {
 
             const commentsRating = dataCommentsForName?.reduce((prev, curr) => prev + curr.rating, 0); // проходимся по массиву объектов комментариев,отфильтрованных для каждого товара по имени и на каждой итерации увеличиваем переменную prev(это число,и мы указали,что в начале оно равно 0 и оно будет увеличиваться на каждой итерации массива объектов,запоминая старое состояние числа и увеличивая его на новое значение) на curr(текущий итерируемый объект).rating ,это чтобы посчитать общую сумму всего рейтинга от каждого комментария и потом вывести среднее значение
 
-            // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
+
+            //если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
             if (dataCommentsForName?.length && commentsRating) {
                 const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
 
@@ -211,6 +212,7 @@ const ProductIdPage = () => {
         await addProductBasket({ name: data?.data.name, category: data?.data.category, image: data?.data.image, price: data?.data.price, rating: data?.data.rating, priceFilter: data?.data.priceFilter, amount: inputValue, totalPrice: priceProduct } as IProduct); // передаем в addProductBasket объект типа IProduct только таким образом,разворачивая в объект все необходимые поля(то есть наш product,в котором полe name,делаем поле name со значением,как и у этого name и остальные поля также,кроме поля amount и totalPrice,их мы изменяем и указываем как значения inputValue(инпут с количеством) и priceProduct(состояние цены,которое изменяется при изменении inputValue)),указываем тип этого объекта, созданный нами тип IProduct,при создании на сервере не указываем конкретное значение id,чтобы он сам автоматически генерировался на сервере и потом можно было удалить этот объект
 
     }
+
 
     return (
         <>

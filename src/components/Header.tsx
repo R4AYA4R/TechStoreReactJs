@@ -20,7 +20,7 @@ const Header = ()=>{
                             <NavLink to="/catalog" className={({isActive}) => isActive ? 'menu__item-link menu__item-link--active' : 'menu__item-link'}>Catalog</NavLink>
                         </li>
                         <li className="menu__list-item">
-                            <a href="#" className="menu__item-link">About us</a>
+                            <NavLink to="/about" className={({isActive}) => isActive ? 'menu__item-link menu__item-link--active' : 'menu__item-link'}>About Us</NavLink>
                         </li>
                         <li className="menu__list-item menu__list-itemCart">
                             <NavLink to="/cart" className={({isActive}) => isActive ? 'menu__item-link menu__item-link--active' : 'menu__item-link'}>

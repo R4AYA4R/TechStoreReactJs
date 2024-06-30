@@ -26,9 +26,20 @@ const ProductItem = ({ product }: IProductProps) => {
         }
     })
 
+    const { data, refetch } = useQuery({
+        queryKey: ['productPageId'],
+        queryFn: async () => {
+            // делаем запрос на сервер по конкретному id,который достали из url
+            const response = await axios.get<IProduct>(`http://localhost:5000/catalogProducts/${product.id}`);
+
+            return response;
+        }
+    })
+    
     // при изменении массива комментариев и массива data?.data(самого товара) переобновляем массив комментарие,фильтруем его и помещаем в состояние(чтобы комментарии показывались для каждого товара отдельные)
     useEffect(() => {
         refetchComments();
+        refetch();
 
         const dataCommentsForName = dataComments?.data.filter(c => c.nameFor === product.name); // массив данных комментариев фильтруем для каджого товара по его имени
 
@@ -36,7 +47,7 @@ const ProductItem = ({ product }: IProductProps) => {
 
         setAmountReviews(dataCommentsForName?.length);
 
-        // если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
+        //если commentsRating true(эта переменная есть и равна чему-то) и dataCommentsForName?.length true(этот массив отфильтрованных комментариев есть),то считаем средний рейтинг всех комментариев и записываем его в переменную,а потом в состояние,чтобы отобразить рейтинг
         if (commentsRating && dataCommentsForName?.length) {
             const commentsRatingMiddle = commentsRating / dataCommentsForName?.length; // считаем средний рейтинг комментариев для каждого товара,делим общее количество рейтинга каждого комменатрия на количество комментариев для каждого товара
 
