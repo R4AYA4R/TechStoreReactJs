@@ -90,7 +90,7 @@ const Catalog = () => {
 
                 return response;
 
-            } else if (categoryFilter !== '' && priceFilter !== '') {
+            } else if (categoryFilter !== '' && priceFilter !== '' && sortByFilter === '') {
 
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}&priceFilter=${priceFilter}`, {
                     params: {
@@ -105,7 +105,7 @@ const Catalog = () => {
 
                 return response;
 
-            } else if (priceFilter !== '') {
+            } else if (priceFilter !== '' && sortByFilter === '') {
 
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&priceFilter=${priceFilter}`, {
                     params: {
@@ -120,7 +120,7 @@ const Catalog = () => {
 
                 return response;
 
-            } else if (categoryFilter !== '') {
+            } else if (categoryFilter !== '' && sortByFilter === '') {
 
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&category=${categoryFilter}`, {
                     params: {
@@ -135,7 +135,7 @@ const Catalog = () => {
 
                 return response;
 
-            } else if (sortByFilter !== ''){
+            } else if (sortByFilter !== '' && categoryFilter === '' && priceFilter === ''){
                 const response = await axios.get<IProduct[]>(`http://localhost:5000/catalogProducts?name_like=${searchValue}&_sort=rating&_order=desc`, {
                     params: {
                         _limit: limit,
