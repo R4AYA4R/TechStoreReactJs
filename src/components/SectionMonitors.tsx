@@ -9,7 +9,7 @@ const SectionMonitors = () => {
                         <h1 className="sectionCustom__firstBlock-title">Gaming Monitors</h1>
                         <Link to="/catalog" className="sectionCustom__firstBlock-link">See All Products</Link>
                     </div>
-                    <div className="sectionCustom__products">
+                    <div className="sectionCustom__products sectionMonitors__products">
                         <div className="sectionCustom__products-item">
                             <div className="products__item-imgBlock">
                                 <img src="/images/sectionMonitors/image 29.png" alt="" className="products__item-img" />

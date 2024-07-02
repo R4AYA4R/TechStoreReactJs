@@ -1,20 +1,17 @@
 
 
-const Footer=()=>{
-    return(
+const Footer = () => {
+    return (
         <footer className="footer">
             <div className="container">
                 <div className="footer__inner">
                     <div className="footer__top">
-                        <div className="footer__titles">
-                            <h1 className="footer__title">Information
-                            </h1>
-                            <h1 className="footer__title">Desktop PCs</h1>
-                            <h1 className="footer__title">Laptops</h1>
-                            <h1 className="footer__title">Address</h1>
-                        </div>
                         <div className="footer__lists">
                             <ul className="footer__menu">
+                                <li className="footer__menu-item">
+                                    <h1 className="footer__title">Information
+                                    </h1>
+                                </li>
                                 <li className="footer__menu-item">
                                     <a href="#" className="footer__menu-link">About Us</a>
                                     <a href="#" className="footer__menu-link">About Zip</a>
@@ -26,6 +23,10 @@ const Footer=()=>{
                             </ul>
                             <ul className="footer__menu">
                                 <li className="footer__menu-item">
+                                    <h1 className="footer__title">Desktop PCs
+                                    </h1>
+                                </li>
+                                <li className="footer__menu-item">
                                     <a href="#" className="footer__menu-link">Custom PCs</a>
                                     <a href="#" className="footer__menu-link">Servers</a>
                                     <a href="#" className="footer__menu-link">MSI All-In-One PCs</a>
@@ -33,6 +34,10 @@ const Footer=()=>{
                                 </li>
                             </ul>
                             <ul className="footer__menu">
+                                <li className="footer__menu-item">
+                                    <h1 className="footer__title">Laptops
+                                    </h1>
+                                </li>
                                 <li className="footer__menu-item">
                                     <a href="#" className="footer__menu-link">Everyday Use Notebooks
                                     </a>
@@ -44,6 +49,10 @@ const Footer=()=>{
                                 </li>
                             </ul>
                             <ul className="footer__menu">
+                                <li className="footer__menu-item">
+                                    <h1 className="footer__title">Address
+                                    </h1>
+                                </li>
                                 <li className="footer__menu-item">
                                     <p className="footer__menu-textAddress">Address: 1234 Street Adress City Address, 1234</p>
                                     <p className="footer__menu-link">Phones: <a href="#" className="footer__menu-linkPhone">(00) 1234 5678</a></p>

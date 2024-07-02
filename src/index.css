@@ -10,6 +10,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 html,
@@ -45,6 +46,7 @@ ul {
 .header {
   padding: 30px 0;
   border-bottom: 1px solid #A2A6B0;
+  overflow-x: hidden;
 }
 
 .header__inner {
@@ -435,6 +437,7 @@ ul {
   color: #838383;
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .footer__lists {
@@ -1242,11 +1245,132 @@ ul {
   margin-bottom: 20px;
 }
 
+@media (max-width:1320px) {
+  .sectionCustom__firstBlock{
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+  }
+  .sectionCustom__products{
+    flex-wrap: wrap;
+  }
+  .sectionLaptops__products{
+    flex-wrap: wrap;
+  }
+  .sectionLaptops__laptopsBlock{
+    flex-wrap: nowrap;
+  }
+  .sectionLaptops__firstBlock{
+    min-height: 545px;
+  }
+  .sectionCompanies__inner{
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer__lists,
+  .footer__titles{
+    gap:10px;
+  }
+}
+
+@media (max-width:1170px){
+  .swiper-pagination-bullets{
+    bottom: 30px !important;
+    left: 0 !important;
+  }
+  .sectionSupport__inner{
+    gap: 30px;
+  }
+}
+
+@media (max-width:920px){
+  .sectionCustom__inner{
+    flex-direction: column;
+  }
+  .sectionCustom__firstBlock-title{
+    max-width: none;
+    margin:40px 0;
+  }
+  .sectionCustom__products{
+    gap:100px;
+    justify-content: center;
+  }
+  .sectionMonitors__products{
+    gap: 60px;
+  }
+  .sectionLaptops__laptopsBlock{
+    flex-direction: column;
+  }
+  .sectionLaptops__firstBlock{
+    width: 100%;
+    min-height: auto;
+  }
+  .sectionCustom__firstBlock{
+    max-height: 200px;
+  }
+  .tabs__list{
+    margin-bottom: 15px;
+  }
+  .sectionLaptops__laptopsBlock.sectionCustom__products{
+    gap:25px;
+  }
+  .sectionSupport{
+    padding: 30px;
+  }
+  .swiperSlide__text{
+    font-size: 16px;
+  }
+  .swiperSlide__inner{
+    padding: 20px 100px 120px 100px;
+  }
+  .swiperSlide__bottomBlock{
+    justify-content: start;
+  }
+  .swiper-pagination-bullets{
+    bottom:25px !important;
+    left: 220px !important;
+  }
+} 
+
+@media (max-width:670px){
+  .sectionCustom__products{
+    gap: 10px;
+  }
+  .sectionLaptops__products{
+    justify-content: center;
+    gap: 10px;
+  }
+  .sectionSupport__inner{
+    flex-direction: column;
+  }
+  .footer__lists{
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+  }
+  .swiperSlide__text,
+  .swiperSlide__bottomBlock-text{
+    font-size: 14px;
+  }
+  .swiperSlide__inner{
+    padding: 30px;
+  }
+  .swiper{
+    height: auto;
+  }
+  .swiper-pagination-bullets{
+    bottom:5px !important;
+    left: 0 !important;
+  }
+}
+
 @media (max-width:620px) {
   .header__menu-list{
     display: none;
   }
-
+  .header__menuMobile-list{
+    padding: 20px;
+  }
   .header__menuMobile-list--active {
     transform: translateX(0);
   }
@@ -1332,5 +1456,21 @@ ul {
 
   .menuBtn__spanActive4 {
     transform: scaleX(0);
+  }
+  .sectionCompanies,
+  .sectionMonitors{
+    margin-bottom: 30px;
+  }
+  .sectionTop__img{
+    display: none;
+  }
+}
+
+@media (max-width:490px){
+  .footer__lists{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .sectionCustom__firstBlock-title{
+    margin: 20px 0;
   }
 }
