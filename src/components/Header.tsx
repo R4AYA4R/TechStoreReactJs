@@ -13,7 +13,7 @@ const Header = () => {
             <div className="container">
                 <div className="header__inner">
                     <Link to="/" className="header__link-logo">
-                        <img src="/images/header/1.png" alt="" className="header__logo" />
+                        <img src="/images/header/1.png" alt="" className="header__logo" onClick={()=>setIsActiveMenuMobile(false)}/>
                     </Link>
                     <ul className="header__menu-list">
                         <li className="menu__list-item">
@@ -37,16 +37,16 @@ const Header = () => {
 
                     <ul className={isActiveMenuMobile ? "header__menuMobile-list header__menuMobile-list--active" : "header__menuMobile-list"}>
                         <li className="menuMobile__list-item">
-                            <NavLink to="/" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'}>Home</NavLink>
+                            <NavLink to="/" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'} onClick={()=>setIsActiveMenuMobile(false)}>Home</NavLink>
                         </li>
                         <li className="menuMobile__list-item">
-                            <NavLink to="/catalog" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'}>Catalog</NavLink>
+                            <NavLink to="/catalog" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'} onClick={()=>setIsActiveMenuMobile(false)}>Catalog</NavLink>
                         </li>
                         <li className="menuMobile__list-item">
-                            <NavLink to="/about" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'}>About Us</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => isActive ? 'menuMobile__item-link menuMobile__item-link--active' : 'menuMobile__item-link'} onClick={()=>setIsActiveMenuMobile(false)}>About Us</NavLink>
                         </li>
                         <li className="menu__list-itemCart menuMobile__list-itemCart">
-                            <NavLink to="/cart" className={({ isActive }) => isActive ? 'menuMobile__itemCart-link menuMobileCart__item-link--active' : 'menuMobile__itemCart-link'}>
+                            <NavLink to="/cart" className={({ isActive }) => isActive ? 'menuMobile__itemCart-link menuMobileCart__item-link--active' : 'menuMobile__itemCart-link'} onClick={()=>setIsActiveMenuMobile(false)}>
                                 <img src="/images/header/jam_shopping-cart.png" alt="" className="menu__link-cartImg" />
                                 <span className="menu__link-spanCart">{data?.length}</span>
                             </NavLink>

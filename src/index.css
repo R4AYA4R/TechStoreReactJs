@@ -536,6 +536,9 @@ ul {
   gap: 740px;
   margin-bottom: 15px;
 }
+.sectionCatalog__mainBlock-productsBlock{
+  width: 100%;
+}
 
 .productsBlock__topBlock-text {
   font-size: 13px;
@@ -1245,6 +1248,13 @@ ul {
   margin-bottom: 20px;
 }
 
+@media (max-width:1340px){
+  .productsBlock__topBlock{
+    gap:0;
+    justify-content: space-between;
+  }
+}
+
 @media (max-width:1320px) {
   .sectionCustom__firstBlock{
     background-size: cover;
@@ -1281,6 +1291,12 @@ ul {
   }
   .sectionSupport__inner{
     gap: 30px;
+  }
+  .productsBlock__products{
+    grid-template-columns: repeat(3,1fr);
+  }
+  .productsBlock__filtersBlock{
+    flex-wrap: wrap;
   }
 }
 
@@ -1331,7 +1347,22 @@ ul {
     bottom:25px !important;
     left: 220px !important;
   }
+  .products__linkItem{
+    display: flex;
+    justify-content: center;
+  }
+  .productsBlock__products{
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+  }
 } 
+
+@media (max-width:730px){
+  .productsBlock__filtersBlock-filter{
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 @media (max-width:670px){
   .sectionCustom__products{
@@ -1361,6 +1392,22 @@ ul {
   .swiper-pagination-bullets{
     bottom:5px !important;
     left: 0 !important;
+  }
+  .sectionCatalog__mainBlock{
+    flex-wrap: wrap;
+  }
+  .sectionCatalog__mainBlock-filterBar{
+    width: 100%;
+  }
+  .images__list-item{
+    display: flex;
+    justify-content: center;
+  }
+  .productsBlock__filtersBlock-filter{
+    padding: 10px;
+  }
+  .productsBlock__filtersBlock-filter{
+    width: auto;
   }
 }
 
@@ -1464,6 +1511,12 @@ ul {
   .sectionTop__img{
     display: none;
   }
+  .sectionCatalog__img{
+    display: none;
+  }
+  .sectionCatalog__topText-text{
+    margin-top: 10px;
+  }
 }
 
 @media (max-width:490px){
@@ -1472,5 +1525,23 @@ ul {
   }
   .sectionCustom__firstBlock-title{
     margin: 20px 0;
+  }
+  .productsBlock__products{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .products__item-img{
+    min-width: 200px;
+  }
+  .productsBlock__topBlock-input{
+    min-width: 0;
+  }
+  .productsBlock__pages-page{
+    padding: 4px 12px;
+  }
+  .productsBlock__pages{
+    gap: 5px;
+  }
+  .productsBlock__filtersBlock-filter{
+    width: 100%;
   }
 }
