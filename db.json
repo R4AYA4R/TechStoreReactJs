@@ -8,7 +8,7 @@
       "price": 799,
       "priceFilter": "$0.00 - $1,000.00",
       "totalPrice": 799,
-      "rating": 2.5,
+      "rating": 0,
       "id": 2
     },
     {
@@ -30,7 +30,7 @@
       "price": 539,
       "priceFilter": "$0.00 - $1,000.00",
       "totalPrice": 539,
-      "rating": 3.3333333333333335,
+      "rating": 1,
       "id": 4
     },
     {
@@ -333,20 +333,30 @@
       "text": "asdf",
       "rating": 5,
       "id": 5
+    },
+    {
+      "name": "adsf",
+      "nameFor": "Dell XPS Desktop (8960)",
+      "text": "asdf",
+      "rating": 3,
+      "id": 6
+    },
+    {
+      "name": "a",
+      "nameFor": "Acer Aspire TC-1780-UA92",
+      "text": "a",
+      "rating": 1,
+      "id": 7
+    },
+    {
+      "name": "aadsf",
+      "nameFor": "Acer Aspire TC-1780-UA92",
+      "text": "a",
+      "rating": 3,
+      "id": 8
     }
   ],
   "productsBasket": [
-    {
-      "name": "Alienware Aurora R16",
-      "category": "HP/COMPAQ PCS",
-      "image": "/images/sectionCustom/image 29.jpg",
-      "price": 339,
-      "rating": 1,
-      "priceFilter": "$0.00 - $1,000.00",
-      "amount": 2,
-      "totalPrice": 678,
-      "id": 1
-    },
     {
       "name": "NZXT Player: One",
       "category": "HP/COMPAQ PCS",
@@ -379,6 +389,28 @@
       "amount": 2,
       "totalPrice": 1598,
       "id": 4
+    },
+    {
+      "name": "Acer Aspire TC-1780-UA92",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionCatalog/image 29 (1).png",
+      "price": 539,
+      "rating": 1,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 99,
+      "totalPrice": 53361,
+      "id": 5
+    },
+    {
+      "name": "Alienware Aurora R16",
+      "category": "HP/COMPAQ PCS",
+      "image": "/images/sectionCustom/image 29.jpg",
+      "price": 339,
+      "rating": 1,
+      "priceFilter": "$0.00 - $1,000.00",
+      "amount": 4,
+      "totalPrice": 1356,
+      "id": 6
     }
   ]
 }

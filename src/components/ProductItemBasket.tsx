@@ -5,11 +5,11 @@ import { BasketContext } from "../App";
 import { setTimeout } from "timers/promises";
 
 
-interface IProductBasket{
-    product:IProduct
+interface IProductBasket {
+    product: IProduct
 }
 
-const ProductItemBasket = ({product}:IProductBasket) => {
+const ProductItemBasket = ({ product }: IProductBasket) => {
 
     const [inputValue, setInputValue] = useState<number>(product.amount);
 
@@ -58,39 +58,77 @@ const ProductItemBasket = ({product}:IProductBasket) => {
 
     }, [inputValue])
 
-    useEffect(()=>{ 
-        
+    useEffect(() => {
+
         // updateBasket(inputValue,priceProduct,product);
         // console.log(priceProduct)
 
-        updateProductBasket({...product,amount:inputValue,totalPrice:priceProduct}); // обновляем данные товара корзины при изменении priceProduct
-       
-    },[priceProduct])
+        updateProductBasket({ ...product, amount: inputValue, totalPrice: priceProduct }); // обновляем данные товара корзины при изменении priceProduct
+
+    }, [priceProduct])
 
 
     return (
-        <div className="table__main-item">
-            <img src={product.image} alt="" className="main__item-img" />
-            <p className="main__item-text">{product.name}</p>
-            <p className="main__item-price">${product.price}</p>
-            <div className="leftBlock__cartBlock-inputBlock">
-                <button className="cartBlock__inputBlock-btnUp" onClick={handlerBtnPlus}>
-                    <img src="/images/sectionProductPageTop/Frame 98.png" alt="" className="cartBlock__inputBlock-imgUp" />
-                </button>
-                <button className="cartBlock__inputBlock-btnDown" onClick={handlerBtnMinus}>
-                    <img src="/images/sectionProductPageTop/Frame 97.png" alt="" className="cartBlock__inputBlock-imgDown" />
-                </button>
+        <>
+            <div className="table__main-item table__main-itemMobile">
+                <img src={product.image} alt="" className="main__item-img" />
+                <p className="main__item-text">{product.name}</p>
+                <p className="main__item-price">${product.price}</p>
+                <div className="leftBlock__cartBlock-inputBlock">
+                    <button className="cartBlock__inputBlock-btnUp" onClick={handlerBtnPlus}>
+                        <img src="/images/sectionProductPageTop/Frame 98.png" alt="" className="cartBlock__inputBlock-imgUp" />
+                    </button>
+                    <button className="cartBlock__inputBlock-btnDown" onClick={handlerBtnMinus}>
+                        <img src="/images/sectionProductPageTop/Frame 97.png" alt="" className="cartBlock__inputBlock-imgDown" />
+                    </button>
 
-                {/* изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число */}
-                <input type="number" className="cartBlock__inputBlock-input" max="100" min="1" value={inputValue} onChange={changeInputValue} />
+                    {/* изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число */}
+                    <input type="number" className="cartBlock__inputBlock-input" max="100" min="1" value={inputValue} onChange={changeInputValue} />
+                </div>
+                <p className="main__item-price">${priceProduct}</p>
+                <div className="main__item-btnBlock">
+                    <button className="main__item-btn" onClick={() => deleteProductBasket(product)}>
+                        <img src="/images/sectionCart/Group 108.png" alt="" className="main__item-btnImg" />
+                    </button>
+                </div>
             </div>
-            <p className="main__item-price">${priceProduct}</p>
-            <div className="main__item-btnBlock">
-                <button className="main__item-btn" onClick={()=>deleteProductBasket(product)}>
-                    <img src="/images/sectionCart/Group 108.png" alt="" className="main__item-btnImg" />
-                </button>
+
+            <div className="table__mainMobile-item table__main-itemMobileActive">
+                <div className="main__item-topBlock">
+                    <img src={product.image} alt="" className="main__item-img" />
+                    <p className="main__item-text">{product.name}</p>
+                </div>
+                <div className="main__item-mainBlock">
+                    <div className="main__item-priceBlock">
+                        <p className="item__priceBlock-text">Price</p>
+                        <p className="main__item-price">${product.price}</p>
+                    </div>
+                    <div className="main__item-AmountBlock">
+                        <p className="item__priceBlock-text">Amount</p>
+                        <div className="leftBlock__cartBlock-inputBlock">
+                            <button className="cartBlock__inputBlock-btnUp" onClick={handlerBtnPlus}>
+                                <img src="/images/sectionProductPageTop/Frame 98.png" alt="" className="cartBlock__inputBlock-imgUp" />
+                            </button>
+                            <button className="cartBlock__inputBlock-btnDown" onClick={handlerBtnMinus}>
+                                <img src="/images/sectionProductPageTop/Frame 97.png" alt="" className="cartBlock__inputBlock-imgDown" />
+                            </button>
+
+                            {/* изменяем состояние инпута цены на текущее значение инпута,указываем + перед e.target.value,чтобы перевести текущее значение инпута из строки в число */}
+                            <input type="number" className="cartBlock__inputBlock-input" max="100" min="1" value={inputValue} onChange={changeInputValue} />
+                        </div>
+                    </div>
+                    <div className="main__item-subtotalBlock">
+                        <p className="item__priceBlock-text">Subtotal</p>
+                        <p className="main__item-price">${priceProduct}</p>
+                    </div>
+                    <div className="main__item-btnBlock">
+                        <button className="main__item-btn" onClick={() => deleteProductBasket(product)}>
+                            <img src="/images/sectionCart/Group 108.png" alt="" className="main__item-btnImg" />
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

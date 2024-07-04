@@ -287,7 +287,7 @@ const ProductIdPage = () => {
                                             <div className="leftBlockComments__top" key={comm.id}>
                                                 <div className="leftBlockComments__top-topline">
                                                     <h2 className="leftBlockComments__top-title">{comm.name}</h2>
-                                                    <div className="form__top-ratingBlock">
+                                                    <div className="form__top-ratingBlock form__top-ratingBlockComments">
                                                         <div className="mark__stars5 " >
                                                             <img src="/images/sectionCustom/Star 6.png" alt="" className="mark__stars5-img mark__stars5-imgComments" />
                                                         </div>

@@ -49,7 +49,7 @@ const Cart = () => {
 
                     {data?.length ?
                         <div className="sectionCart__table">
-                            <ul className="sectionCart__table-topList">
+                            <ul className="sectionCart__table-topList sectionCart__table-topListMobile">
                                 <li className="table__topList-item">
                                     <p className="topList__item-text">Item</p>
                                 </li>
