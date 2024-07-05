@@ -1163,7 +1163,7 @@ ul {
 
 .sectionAbout__firstBlock {
   background-color: #000;
-  padding: 96px 0;
+  padding: 97px 0;
 }
 
 .sectionAbout__firstBlock-title {
@@ -1308,6 +1308,9 @@ ul {
     align-items: start;
     gap:20px;
   }
+  .sectionAbout__secondBlock-img{
+    max-width: 500px;
+  }
 }
 
 @media (max-width:1170px){
@@ -1326,6 +1329,14 @@ ul {
   }
   .table__main-item{
     gap:10px;
+  }
+  .sectionAbout__firstBlock-title,
+  .secondBlock__info-title,
+  .left__top-title{
+    font-size: 38px;
+  }
+  .sectionAbout__firstBlock-inner{
+    gap: 50px;
   }
 }
 
@@ -1402,6 +1413,22 @@ ul {
     flex-direction: column;
     padding: 25px 0;
     border-bottom: 1px solid #CACDD8;
+  }
+  .sectionAbout__firstBlock-inner,
+  .sectionAbout__secondBlock-inner,
+  .sectionAbout__thirdBlock-inner{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sectionAbout__firstBlock-img,
+  .sectionAbout__thirdBlock-img{
+    order:-1;
+    justify-self: center;
+  }
+  .sectionAbout__thirdBlock-inner,
+  .sectionAbout__secondBlock-inner{
+    gap: 50px;
   }
 } 
 
@@ -1592,6 +1619,12 @@ ul {
   .sectionOutplay{
     padding: 100px 0;
   }
+  .sectionAbout__secondBlock-img{
+    max-width: 450px;
+  }
+  .sectionAbout__firstBlock-img{
+    width: 100%;
+  }
 }
 
 @media (max-width:490px){
@@ -1667,5 +1700,24 @@ ul {
   }
   .main__item-text{
     font-size: 14px;
+  }
+  .sectionAbout__thirdBlock-img{
+    max-width: 250px;
+  }
+  .sectionAbout__secondBlock-img{
+    max-width: 280px;
+  }
+
+  .sectionAbout__firstBlock-title,
+  .secondBlock__info-title,
+  .left__top-title{
+    font-size: 28px;
+  }
+  .sectionAbout__firstBlock,
+  .sectionAbout__thirdBlock{
+    padding: 50px 0;
+  }
+  .sectionCart__emptyText{
+    margin-top: 10px;
   }
 }

@@ -78,7 +78,7 @@ const Cart = () => {
                                 <p className="table__bottom-text">Total: ${totalCheck}</p>
                             </div>
                         </div>
-                        : <h3>Cart is Empty</h3>
+                        : <h3 className="sectionCart__emptyText">Cart is Empty</h3>
 
                     }
 

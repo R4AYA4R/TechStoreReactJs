@@ -364,31 +364,9 @@
       "price": 399,
       "rating": 0,
       "priceFilter": "$0.00 - $1,000.00",
-      "amount": 4,
-      "totalPrice": 1596,
-      "id": 2
-    },
-    {
-      "name": "Dell OptiPlex 5090 Tower",
-      "category": "MSI ALL-IN-ONE PCS",
-      "image": "/images/sectionCustom/image 29.jpg",
-      "price": 1799,
-      "rating": 0,
-      "priceFilter": "$1,000.00 - $2,000.00",
-      "amount": 2,
-      "totalPrice": 3598,
-      "id": 3
-    },
-    {
-      "name": "Dell XPS Desktop (8960)",
-      "category": "MSI ALL-IN-ONE PCS",
-      "image": "/images/sectionCatalog/image 29.png",
-      "price": 799,
-      "rating": 2.5,
-      "priceFilter": "$0.00 - $1,000.00",
-      "amount": 2,
-      "totalPrice": 1598,
-      "id": 4
+      "amount": 7,
+      "totalPrice": 2793,
+      "id": 1
     },
     {
       "name": "Acer Aspire TC-1780-UA92",
@@ -397,20 +375,9 @@
       "price": 539,
       "rating": 1,
       "priceFilter": "$0.00 - $1,000.00",
-      "amount": 99,
-      "totalPrice": 53361,
-      "id": 5
-    },
-    {
-      "name": "Alienware Aurora R16",
-      "category": "HP/COMPAQ PCS",
-      "image": "/images/sectionCustom/image 29.jpg",
-      "price": 339,
-      "rating": 1,
-      "priceFilter": "$0.00 - $1,000.00",
-      "amount": 4,
-      "totalPrice": 1356,
-      "id": 6
+      "amount": 12,
+      "totalPrice": 6468,
+      "id": 2
     }
   ]
 }
